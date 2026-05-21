@@ -10,11 +10,16 @@ export default function ExperienceRow({
   summary: string;
 }) {
   return (
-    <div className="grid grid-cols-[120px_1fr] gap-6 py-4 border-b border-white/10 last:border-0">
+    <div className="grid grid-cols-[140px_1fr] gap-6 py-5 border-b border-white/10 last:border-0">
       <span className="text-body-s text-body">{period}</span>
       <div className="flex flex-col gap-1">
         <h3 className="text-body-m text-heading">
-          {role} · <span className="text-body">{org}</span>
+          {role && (
+            <>
+              {role} <span className="text-body">· {org}</span>
+            </>
+          )}
+          {!role && org}
         </h3>
         <p className="text-body-s text-body max-w-[560px]">{summary}</p>
       </div>

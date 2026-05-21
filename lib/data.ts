@@ -3,9 +3,10 @@ export const identity = {
   role: "Finance & AI Operator",
   tagline: "Markets, systems and execution.",
   location: "Birmingham, UK · Singapore Citizen",
-  bio: "Final-year BSc Finance & Investments student graduating July 2026, focused on international finance operations and financial analysis. I turn financial and operational information into clear checks, useful reporting and better-controlled decisions.",
+  bio: "I'm a finance-trained operator building at the intersection of markets, AI workflows and practical execution. This site is a home for my work, projects, writing and experiments.",
+  about:
+    "I'm a Singaporean final-year Finance & Investments student based in the UK, graduating in July 2026. My work sits between financial markets, AI-supported workflows and practical operating systems. I'm interested in how better tools, clearer research processes and tighter feedback loops can improve decisions in finance, trading, startups and operations.",
   email: "neithlopes@gmail.com",
-  phone: "+44 7393 344997",
   social: [
     {
       label: "LinkedIn",
@@ -15,62 +16,51 @@ export const identity = {
   ],
 };
 
-export const cycles = ["Markets", "Systems", "Execution"];
-
-export const experience = [
+export const work = [
   {
+    name: "Neural Edge",
     role: "Macro Research & Decision-Support",
-    org: "Neural Edge",
     period: "2026 — Present",
     summary:
-      "Structured research platform organising financial inputs, market evidence, review trails and decision logic across FX, equity indices, commodities and monetary metals. Excel-style controls, Python-assisted analysis and AI-supported review to cut manual rework and tighten recurring checks.",
+      "Building a research and decision-support platform for serious traders and market operators. Neural Edge organises financial inputs, market evidence, review trails and decision logic across FX, equity indices, commodities and monetary metals.",
+    tags: ["Markets", "AI workflows", "Research systems", "Decision support"],
+    featured: true,
   },
   {
-    role: "Independent Macro Research & Trading",
-    org: "Remote",
+    name: "Independent Macro Research & Trading",
+    role: "Self-directed",
     period: "2020 — Present",
     summary:
-      "Self-directed research across economic releases, central bank policy, valuation context, positioning, technicals and post-outcome review. Cross-asset themes — equities, FX, commodities, rates — with disciplined assumption logging and thesis-invalidation review.",
+      "Self-directed research across economic releases, central bank policy, valuation context, positioning, technical conditions and post-outcome review. Focused on cross-asset themes, thesis invalidation and decision quality under uncertainty.",
+    tags: ["Macro", "Trading", "Risk review", "Market research"],
+    featured: true,
   },
   {
+    name: "Hatch Dev Asia",
     role: "Tech Lead",
-    org: "Hatch Dev Asia · Singapore",
     period: "Jun 2020 — Jan 2021",
     summary:
-      "Delivered client-facing digital projects and coordinated junior developers. Managed requirements, timelines, quality checks and SEO/SEM execution for SME clients — balancing commercial needs, data quality and delivery deadlines.",
+      "Delivered client-facing digital projects for SME clients, coordinating junior developers across requirements, timelines, quality checks and SEO/SEM execution.",
+    tags: [],
+    featured: false,
   },
   {
+    name: "Orama Asia",
     role: "Co-Founder & Tech Lead",
-    org: "Orama Asia · Singapore",
     period: "Aug 2019 — Jun 2020",
     summary:
-      "Co-founded a blockchain-based logistics venture focused on supply-chain transparency across Southeast Asia. Translated operational pain points into product scope and stakeholder narrative; built comfort with process documentation, operational controls and cross-border information flow.",
+      "Co-founded a blockchain-based logistics venture focused on supply-chain transparency across Southeast Asia. Worked across product scope, market research, stakeholder communication and cross-border information flows.",
+    tags: [],
+    featured: false,
   },
   {
-    role: "Singapore National Service",
-    org: "Singapore",
+    name: "Singapore National Service",
+    role: "",
     period: "2021 — 2023",
     summary:
       "Completed full-time National Service before starting university in the UK.",
-  },
-];
-
-export const projects = [
-  {
-    name: "Neural Edge",
-    category: "Macro Research Platform",
-    description:
-      "Decision-support system for cross-asset macro: FX, equity indices, commodities and monetary metals. Captures source data, checks assumptions, compares signals and turns scattered information into clean reporting.",
-    href: "#",
-    accent: "rgb(99, 26, 255)",
-  },
-  {
-    name: "Macro Journal",
-    category: "Independent Research",
-    description:
-      "Live notebook of cross-asset themes and trade ideas. Disciplined assumption logging, post-outcome review and reconciliation against new information — five years and counting.",
-    href: "#",
-    accent: "rgb(252, 252, 250)",
+    tags: [],
+    featured: false,
   },
 ];
 
@@ -80,63 +70,48 @@ export const education = [
     degree: "BSc (Hons) Finance & Investments",
     period: "2023 — 2026",
     summary:
-      "CFA-accredited programme. Expected graduation July 2026. Modules: Equity & Fixed Income Analysis, Derivatives & Risk Management, Investment & Portfolio Management, Alternative Investments, Entrepreneurial Finance.",
+      "CFA-accredited programme. Focus areas include equity and fixed income analysis, derivatives and risk management, portfolio management, alternative investments and entrepreneurial finance.",
   },
   {
     school: "Singapore Polytechnic",
     degree: "Diploma in Business Studies",
     period: "2019 — 2021",
     summary:
-      "Modules: Business Statistics, Business Intelligence, Predictive Analytics, Business Planning & Entrepreneurship.",
+      "Studied business statistics, business intelligence, predictive analytics, business planning and entrepreneurship.",
   },
 ];
 
 export const skills = [
   {
-    title: "Finance operations fit",
+    title: "Markets & Finance",
     items: [
-      "Order-to-Cash awareness",
-      "Accounts receivable & aging-report interest",
-      "Credit and collection risk awareness",
-      "Revenue-control mindset",
-      "Audit documentation",
-      "SOX / internal-controls awareness",
-      "Process improvement",
-    ],
-  },
-  {
-    title: "Accounting & analysis",
-    items: [
+      "Cross-asset macro research",
       "Financial analysis",
-      "Balance-sheet thinking",
-      "Transaction review",
-      "Variance explanation",
-      "Structured research",
-      "Evidence capture",
-      "Attention to detail",
+      "Investment and portfolio thinking",
+      "Risk, thesis invalidation and review",
+      "Financial reporting discipline",
     ],
   },
   {
-    title: "Excel & tools",
+    title: "AI & Systems",
     items: [
-      "Excel · pivot tables",
-      "VLOOKUP · XLOOKUP · formulas",
-      "Google Sheets",
+      "AI-supported workflows",
+      "Research systems",
+      "Process automation",
+      "Decision-support tooling",
       "Python-assisted analysis",
       "SQL fundamentals",
-      "Dashboard thinking",
-      "ERP systems awareness",
     ],
   },
   {
-    title: "Communication & execution",
+    title: "Execution",
     items: [
+      "Product thinking",
       "Stakeholder communication",
-      "Client-facing delivery",
       "Documentation",
-      "Ownership through ambiguity",
-      "Deadline discipline",
-      "Clear written communication",
+      "Client-facing delivery",
+      "Operating through ambiguity",
+      "Building from zero to one",
     ],
   },
 ];
@@ -144,19 +119,5 @@ export const skills = [
 export const credentials = [
   "Bloomberg Market Concepts",
   "AmplifyME Financial Accelerator",
-  "Private Equity & Venture Capital — Università Bocconi",
+  "Private Equity & Venture Capital, Università Bocconi",
 ];
-
-export const references = {
-  note: "Available on request.",
-  list: [
-    {
-      name: "Andrew Koay",
-      title: "Director, SEA Blockchain Lab, Deloitte",
-    },
-    {
-      name: "Dr Hafiz Muhammad Usman Rana",
-      title: "Senior Lecturer in Finance, Birmingham City University",
-    },
-  ],
-};

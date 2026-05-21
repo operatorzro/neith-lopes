@@ -1,80 +1,83 @@
 import Nav from "@/components/Nav";
 import Section from "@/components/Section";
-import ProjectCard from "@/components/ProjectCard";
+import FeaturedWork from "@/components/FeaturedWork";
 import ExperienceRow from "@/components/ExperienceRow";
 import Footer from "@/components/Footer";
-import Crossfade from "@/components/Crossfade";
 import Button from "@/components/Button";
 import Badge from "@/components/Badge";
 import {
   identity,
-  experience,
-  projects,
+  work,
   education,
   skills,
   credentials,
-  cycles,
 } from "@/lib/data";
 
 export default function Home() {
+  const featured = work.filter((w) => w.featured);
+  const rest = work.filter((w) => !w.featured);
+
   return (
     <main className="w-full max-w-page mx-auto flex flex-col items-center">
       {/* Top: Nav + Hero */}
       <div className="w-full max-w-content px-16 pt-16 pb-8 flex flex-col gap-6">
         <Nav name={identity.name} />
-        <div className="flex flex-col gap-3 pt-2">
+        <div className="flex flex-col gap-4 pt-2">
           <Badge>{identity.location}</Badge>
-          <h1 className="text-h1 text-heading text-balance max-w-[680px]">
-            {identity.name} —{" "}
-            <span className="text-body">
-              <Crossfade words={cycles} />
-            </span>
-            .
-          </h1>
-          <p className="text-body-m text-body max-w-[560px]">
-            {identity.role}. {identity.bio}
+          <div className="flex flex-col gap-1">
+            <h1 className="text-h1 text-heading max-w-[680px]">
+              {identity.name}
+            </h1>
+            <p className="text-h3 text-heading">{identity.role}</p>
+            <p className="text-h3 text-body">{identity.tagline}</p>
+          </div>
+          <p className="text-body-m text-body max-w-[560px] pt-1">
+            {identity.bio}
           </p>
           <div className="flex items-center gap-3 pt-2">
-            <Button href="#contact">Get in touch</Button>
-            <Button href="#experience" variant="ghost">
-              See experience
+            <Button href="#work">See work</Button>
+            <Button href="#contact" variant="ghost">
+              Get in touch
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Experience */}
-      <Section title="Experience" id="experience">
-        <div className="flex flex-col">
-          {experience.map((e) => (
-            <ExperienceRow key={e.role + e.org} {...e} />
-          ))}
-        </div>
+      {/* About */}
+      <Section title="About" id="about">
+        <p className="text-body-m text-body max-w-[640px]">{identity.about}</p>
       </Section>
 
-      {/* Projects */}
-      <Section title="Projects" id="projects">
-        <div className="flex flex-col gap-6">
-          <ProjectCard
-            {...projects[0]}
-            ticker={[
-              "FX",
-              "equities",
-              "commodities",
-              "rates",
-              "gold",
-              "macro",
-              "signals",
-              "review",
-            ]}
-          />
-          <ProjectCard {...projects[1]} />
+      {/* Work & Projects */}
+      <Section title="Work & Projects" id="work">
+        <div className="flex flex-col gap-4">
+          {featured.map((w) => (
+            <FeaturedWork
+              key={w.name}
+              name={w.name}
+              role={w.role}
+              period={w.period}
+              summary={w.summary}
+              tags={w.tags}
+            />
+          ))}
+          <div className="flex flex-col pt-4">
+            {rest.map((w) => (
+              <ExperienceRow
+                key={w.name}
+                role={w.role}
+                org={w.name}
+                period={w.period}
+                summary={w.summary}
+              />
+            ))}
+          </div>
         </div>
       </Section>
 
       {/* Skills */}
       <Section title="Skills" id="skills">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
           {skills.map((group) => (
             <div
               key={group.title}
@@ -98,7 +101,7 @@ export default function Home() {
         <div className="flex flex-col">
           {education.map((e) => (
             <ExperienceRow
-              key={e.school + e.degree}
+              key={e.school}
               role={e.degree}
               org={e.school}
               period={e.period}
@@ -110,11 +113,11 @@ export default function Home() {
 
       {/* Credentials */}
       <Section title="Credentials" id="credentials">
-        <ul className="flex flex-wrap gap-2">
+        <ul className="flex flex-col">
           {credentials.map((c) => (
             <li
               key={c}
-              className="hairline rounded-full px-3 py-1.5 text-body-s text-body"
+              className="py-3 border-b border-white/10 last:border-0 text-body-m text-heading"
             >
               {c}
             </li>
@@ -125,9 +128,9 @@ export default function Home() {
       {/* Contact */}
       <Section title="Contact" id="contact">
         <div className="bg-ui rounded-lg p-8 flex flex-col gap-4">
-          <h3 className="text-h3 max-w-[560px]">
-            Open to graduate roles in international finance operations,
-            financial analysis and trade-finance teams. Available July 2026.
+          <h3 className="text-h3 max-w-[600px]">
+            I&rsquo;m open to conversations around finance, markets, AI
+            workflows, product ideas and graduate opportunities from July 2026.
           </h3>
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Button href={`mailto:${identity.email}`} external>

@@ -18,6 +18,7 @@ export default function Ticker({
   const anim = direction === "left" ? "marquee-left" : "marquee-right";
   return (
     <div
+      aria-hidden="true"
       className={`pointer-events-none absolute overflow-hidden ${className}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
