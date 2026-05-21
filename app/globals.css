@@ -1,0 +1,27 @@
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@500,400,700&display=swap");
+@import "../components/dotmatrix/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html, body {
+    background: rgb(10 10 10);
+    color: rgb(252 252 250);
+    font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: rgb(252 252 250); color: rgb(10 10 10); }
+  a { color: inherit; text-decoration: none; }
+}
+
+@layer utilities {
+  .hairline { border: 1px solid rgba(255, 255, 255, 0.1); }
+  .text-balance { text-wrap: balance; }
+}
