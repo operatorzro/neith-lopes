@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageShell>
-      <div className="w-full max-w-content px-16 pb-20 flex flex-col gap-8">
+      <div className="w-full max-w-content px-6 md:px-10 lg:px-16 pb-20 flex flex-col gap-8">
         <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden surface">
           <Image
             src="/work/neural-edge.png"

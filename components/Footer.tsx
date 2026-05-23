@@ -4,7 +4,7 @@ import { identity } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-footer px-16 pt-12 pb-16 flex flex-col items-center gap-5 text-center">
+    <footer className="w-full max-w-footer px-6 md:px-10 lg:px-16 pt-12 pb-16 flex flex-col items-center gap-5 text-center">
       <h2 className="text-[24px] tracking-[-0.03em] text-heading">
         {identity.name}
       </h2>

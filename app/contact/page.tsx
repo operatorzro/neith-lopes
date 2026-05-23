@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <PageShell>
-      <div className="w-full max-w-content px-16 pb-20 flex flex-col gap-8">
+      <div className="w-full max-w-content px-6 md:px-10 lg:px-16 pb-20 flex flex-col gap-8">
         <h1 className="text-h1 text-heading max-w-[600px]">
           Let&rsquo;s talk.
         </h1>

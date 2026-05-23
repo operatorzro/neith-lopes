@@ -30,7 +30,7 @@ export default function FeaturedWork({
   return (
     <Wrapper
       {...wrapperProps}
-      className="group surface relative bg-ui rounded-lg overflow-hidden p-6 flex gap-6 h-[164px] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_2px_6px_rgba(0,0,0,0.5),0_30px_56px_-22px_rgba(0,0,0,0.85)]"
+      className="group surface relative bg-ui rounded-lg overflow-hidden p-5 sm:p-6 flex gap-6 h-auto min-h-[150px] sm:h-[168px] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_2px_6px_rgba(0,0,0,0.5),0_30px_56px_-22px_rgba(0,0,0,0.85)]"
     >
       {/* Left: logo lockup (top) + info (bottom) */}
       <div className="relative z-10 flex flex-1 min-w-0 flex-col justify-between gap-6">
@@ -61,12 +61,12 @@ export default function FeaturedWork({
         </div>
         <div className="flex flex-col gap-1 max-w-[320px]">
           <span className="text-body-m text-heading">{role}</span>
-          <p className="text-body-s text-body">{summary}</p>
+          <p className="text-body-s text-body line-clamp-2">{summary}</p>
         </div>
       </div>
 
-      {/* Right: visual that bleeds off the edge */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 overflow-hidden">
+      {/* Right: visual that bleeds off the edge (hidden on mobile) */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 overflow-hidden hidden sm:block">
         {ticker ? (
           <>
             <Ticker

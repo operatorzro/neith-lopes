@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <PageShell>
-      <article className="w-full max-w-content px-16 pb-20 flex flex-col gap-12">
+      <article className="w-full max-w-content px-6 md:px-10 lg:px-16 pb-20 flex flex-col gap-12">
         {/* Header */}
         <header className="flex flex-col gap-4 border-b border-white/10 pb-8">
           <div className="flex items-start justify-between gap-6">
@@ -40,7 +40,7 @@ export default function ResumePage() {
           </h2>
           <div className="flex flex-col gap-8">
             {resume.projects.map((e) => (
-              <div key={e.role + e.org} className="grid grid-cols-[160px_1fr] gap-6">
+              <div key={e.role + e.org} className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1.5 sm:gap-6">
                 <span className="text-body-s text-body">{e.period}</span>
                 <div className="flex flex-col gap-2">
                   <h3 className="text-body-m text-heading">
@@ -66,7 +66,7 @@ export default function ResumePage() {
           </h2>
           <div className="flex flex-col gap-8">
             {resume.experience.map((e) => (
-              <div key={e.role + e.org} className="grid grid-cols-[160px_1fr] gap-6">
+              <div key={e.role + e.org} className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1.5 sm:gap-6">
                 <span className="text-body-s text-body">{e.period}</span>
                 <div className="flex flex-col gap-2">
                   <h3 className="text-body-m text-heading">
@@ -92,7 +92,7 @@ export default function ResumePage() {
           </h2>
           <div className="flex flex-col gap-6">
             {education.map((e) => (
-              <div key={e.school} className="grid grid-cols-[160px_1fr] gap-6">
+              <div key={e.school} className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1.5 sm:gap-6">
                 <span className="text-body-s text-body">{e.period}</span>
                 <div className="flex flex-col gap-1">
                   <h3 className="text-body-m text-heading">
@@ -112,7 +112,7 @@ export default function ResumePage() {
           </h2>
           <div className="flex flex-col gap-5">
             {resume.skillGroups.map((g) => (
-              <div key={g.title} className="grid grid-cols-[160px_1fr] gap-6">
+              <div key={g.title} className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1.5 sm:gap-6">
                 <span className="text-body-s text-heading">{g.title}</span>
                 <p className="text-body-s text-body">{g.body}</p>
               </div>

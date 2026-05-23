@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="w-full max-w-page mx-auto flex flex-col items-center">
       {/* Top: Nav + Hero (staggered entrance on load) */}
-      <Stagger className="w-full max-w-content px-16 pt-12 pb-8 flex flex-col">
+      <Stagger className="w-full max-w-content px-6 md:px-10 lg:px-16 pt-12 pb-8 flex flex-col">
         <StaggerItem className="mb-12">
           <Nav name={identity.name} />
         </StaggerItem>
@@ -61,7 +61,7 @@ export default function Home() {
 
       {/* Latest Posts */}
       <Section title="Latest Posts" id="posts">
-        <InView className="grid grid-cols-2 gap-x-8 gap-y-10">
+        <InView className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
           {posts.map((p, i) => (
             <PostCard key={p.slug} post={p} index={i} />
           ))}
@@ -83,7 +83,7 @@ export default function Home() {
 
       {/* Working On */}
       <Section title="Working On" id="working-on">
-        <InView className="grid grid-cols-3 gap-x-6 gap-y-3">
+        <InView className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3">
           {workingOn.map((w) => (
             <Item key={w.label} label={w.label} checked={w.done} />
           ))}

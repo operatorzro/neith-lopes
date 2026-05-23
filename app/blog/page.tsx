@@ -13,7 +13,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
   return (
     <PageShell>
-      <div className="w-full max-w-content px-16 pb-20 flex flex-col gap-10">
+      <div className="w-full max-w-content px-6 md:px-10 lg:px-16 pb-20 flex flex-col gap-10">
         <header className="flex flex-col gap-3">
           <h1 className="text-h1 text-heading">
             Welcome to the{" "}
@@ -25,7 +25,7 @@ export default function BlogPage() {
             Neural OS.
           </p>
         </header>
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
           {posts.map((p, i) => (
             <PostCard key={p.slug} post={p} index={i} />
           ))}

@@ -7,7 +7,7 @@ export default function Toolkit() {
       {toolkit.map((g) => (
         <div
           key={g.group}
-          className="grid grid-cols-[150px_1fr] gap-6 items-start py-5 border-b border-white/10 last:border-0"
+          className="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-3 sm:gap-6 items-start py-5 border-b border-white/10 last:border-0"
         >
           <span className="text-body-s text-heading pt-2">{g.group}</span>
           <div className="flex flex-wrap gap-2">

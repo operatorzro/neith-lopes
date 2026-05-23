@@ -113,7 +113,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               <span className="w-fit bg-white/[0.05] rounded-full px-2.5 py-0.5 text-body-s text-body">
                 {post.category}
               </span>
-              <h1 className="text-[40px] leading-[1.08] tracking-[-0.03em] text-heading">
+              <h1 className="text-[30px] sm:text-[40px] leading-[1.1] tracking-[-0.03em] text-heading">
                 {post.title}
               </h1>
               <div className="flex items-center justify-between">

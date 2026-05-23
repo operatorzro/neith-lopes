@@ -35,7 +35,7 @@ export const work: WorkItem[] = [
     role: "Macro Research & Decision-Support",
     period: "2026 — Present",
     summary:
-      "A research and decision-support platform for traders and market operators, spanning FX, equities, commodities and metals.",
+      "A decision-support platform for traders and market operators across global markets.",
     logo: "/work/neural-edge-logo.svg",
     logoFit: "contain" as const,
     ticker: ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"],
@@ -46,7 +46,7 @@ export const work: WorkItem[] = [
     role: "Operating System for Solo Founders",
     period: "2026 — Building",
     summary:
-      "The operating layer a solo founder lacks — proactive AI that runs the work between check-ins, built memory-first on Obsidian.",
+      "A proactive operating layer for solo founders — AI that runs the work, not waits.",
     logo: "/work/neural-os-logo.svg",
     logoFit: "contain" as const,
     ticker: ["CEO", "CMO", "CFO", "CTO", "Ops", "Growth", "Strategy", "Copy"],
@@ -57,7 +57,7 @@ export const work: WorkItem[] = [
     role: "Self-directed",
     period: "2020 — Present",
     summary:
-      "Self-directed cross-asset research across releases, policy, positioning and disciplined post-outcome review.",
+      "Self-directed cross-asset research, positioning and post-outcome review.",
     image: "/work/macro-journal.png",
     featured: true,
   },

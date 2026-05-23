@@ -12,7 +12,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className="w-full max-w-content px-16 pb-8 flex flex-col gap-6"
+      className="w-full max-w-content px-6 md:px-10 lg:px-16 pb-8 flex flex-col gap-6"
     >
       {title && <h2 className="text-h3 text-heading w-fit">{title}</h2>}
       {children}
