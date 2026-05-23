@@ -35,7 +35,7 @@ export const work: WorkItem[] = [
     role: "Macro Research & Decision-Support",
     period: "2026 — Present",
     summary:
-      "A research and decision-support platform for serious traders and market operators. Neural Edge organises financial inputs, market evidence, review trails and decision logic across FX, equity indices, commodities and monetary metals.",
+      "A research and decision-support platform for traders and market operators, spanning FX, equities, commodities and metals.",
     logo: "/work/neural-edge-logo.svg",
     logoFit: "contain" as const,
     ticker: ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"],
@@ -46,7 +46,7 @@ export const work: WorkItem[] = [
     role: "Operating System for Solo Founders",
     period: "2026 — Building",
     summary:
-      "The team a solo founder doesn't have. Neural OS fills the CEO, CMO, CFO and CTO gaps — acting proactively instead of waiting to be prompted. It learns the business in depth and runs the work between check-ins, built memory-first on Obsidian and a stack purpose-made for founders, not a chat wrapper.",
+      "The operating layer a solo founder lacks — proactive AI that runs the work between check-ins, built memory-first on Obsidian.",
     logo: "/work/neural-os-logo.svg",
     logoFit: "contain" as const,
     ticker: ["CEO", "CMO", "CFO", "CTO", "Ops", "Growth", "Strategy", "Copy"],
@@ -57,7 +57,7 @@ export const work: WorkItem[] = [
     role: "Self-directed",
     period: "2020 — Present",
     summary:
-      "Self-directed research across economic releases, central bank policy, valuation context, positioning, technical conditions and post-outcome review. Focused on cross-asset themes, thesis invalidation and decision quality under uncertainty.",
+      "Self-directed cross-asset research across releases, policy, positioning and disciplined post-outcome review.",
     image: "/work/macro-journal.png",
     featured: true,
   },
@@ -196,27 +196,54 @@ export const workingOn = [
 
 export const resume = {
   summary:
-    "Final-year BSc Finance & Investments student graduating in July 2026, eager to start my career in international finance operations and financial analysis. I turn financial and operational information into clear checks, useful reporting and better-controlled decisions, bringing finance training, Excel, research, documentation and process-improvement habits.",
-  experience: [
+    "Final-year BSc Finance & Investments student (graduating July 2026) who builds at the intersection of markets, AI engineering and products. I turn messy processes into structured systems — shipping full-stack and agentic software, running disciplined cross-asset research, and operating end-to-end as a solo founder. Strongest where business workflows, AI agents and practical software meet.",
+  projects: [
     {
-      role: "Macro Research & Decision-Support Platform",
+      role: "Founder & Product Builder",
       org: "Neural Edge",
       period: "2026 — Present",
       bullets: [
-        "Built a structured research and decision-support platform for organising financial inputs, market evidence, review trails and decision logic across FX, equity indices, commodities and monetary metals.",
-        "Created workflows to capture source data, check assumptions, compare signals and turn scattered information into clearer reporting outputs.",
-        "Used Excel-style controls, Python-assisted analysis and AI-supported review to improve consistency, reduce manual rework and make recurring checks easier to follow.",
-        "Developed habits relevant to finance operations: careful data handling, documented reasoning, exception review, control awareness and clear escalation when information does not reconcile.",
+        "Built a full-stack multi-asset research & decision-support platform with React, TypeScript, Node, Express, PostgreSQL and Drizzle ORM.",
+        "Designed AI-supported workflows: scoring, news context, macro/factor data pipelines, evidence trails and post-outcome analysis.",
+        "Shipped with real engineering discipline — Vitest, Supertest and Playwright tests; GitHub, Linear, Doppler and Sentry tooling.",
       ],
     },
     {
+      role: "Founder",
+      org: "Neural OS",
+      period: "2026 — Building",
+      bullets: [
+        "Building a proactive agentic operating layer for solo founders that fills the CEO, CMO, CFO and CTO gaps.",
+        "Memory-first architecture on Obsidian with a custom orchestration layer over isolated coding/AI agents.",
+      ],
+    },
+    {
+      role: "Product Builder",
+      org: "Simple Booking System",
+      period: "2025 — Present",
+      bullets: [
+        "Booking-platform monorepo for service businesses: customer web app, business and customer mobile apps, and an Astro landing page.",
+        "React, TypeScript, Expo/React Native, Convex and Better Auth, with role-separated public/customer/business boundaries.",
+      ],
+    },
+    {
+      role: "Product Builder",
+      org: "Bingo Lingo",
+      period: "2025 — Present",
+      bullets: [
+        "Language-learning app with CEFR progression, spaced repetition, grammar drills, graded stories and text-to-speech.",
+        "Built across Slovak, Spanish and English paths with Next.js, React, TypeScript and Tailwind CSS.",
+      ],
+    },
+  ],
+  experience: [
+    {
       role: "Independent Macro Research & Trading",
       org: "Remote",
-      period: "Jan 2020 — Present",
+      period: "2020 — Present",
       bullets: [
-        "Conduct self-directed financial research using economic releases, central bank policy, valuation context, positioning, technical conditions and post-outcome review.",
-        "Track cross-asset themes across equities, FX, commodities and rates-sensitive markets, with attention to catalysts, downside scenarios and thesis invalidation.",
-        "Maintain a disciplined process for logging assumptions, reviewing outcomes and reconciling views against new information.",
+        "Self-directed cross-asset research across economic releases, central-bank policy, valuation, positioning and technicals.",
+        "Disciplined process: logging assumptions, reviewing outcomes and reconciling views against new information.",
       ],
     },
     {
@@ -224,9 +251,8 @@ export const resume = {
       org: "Hatch Dev Asia · Singapore",
       period: "Jun 2020 — Jan 2021",
       bullets: [
-        "Delivered client-facing digital projects and coordinated junior developers across multiple workstreams.",
-        "Managed requirements, timelines, quality checks and client expectations while supporting SEO and SEM execution for SME clients.",
-        "Communicated project status and trade-offs clearly with clients, balancing commercial needs, data quality and delivery deadlines.",
+        "Delivered client-facing digital projects and coordinated junior developers across requirements, timelines and QA.",
+        "Translated non-technical client requests into clear implementation steps, review points and handover notes.",
       ],
     },
     {
@@ -234,9 +260,8 @@ export const resume = {
       org: "Orama Asia · Singapore",
       period: "Aug 2019 — Jun 2020",
       bullets: [
-        "Co-founded an early-stage blockchain-based logistics venture focused on supply-chain transparency across Southeast Asia.",
-        "Translated operational pain points into product concept, MVP scope and stakeholder narrative in an ambiguous environment.",
-        "Built comfort with process documentation, operational controls, commercial prioritisation and explaining technical concepts to non-technical stakeholders.",
+        "Co-founded a blockchain-based logistics venture; worked technically with Hyperledger Fabric for supply-chain transparency.",
+        "Mapped logistics workflows and adoption barriers into clearer system requirements and product priorities.",
       ],
     },
     {
@@ -248,20 +273,20 @@ export const resume = {
   ],
   skillGroups: [
     {
-      title: "Finance operations",
-      body: "Order-to-Cash awareness, accounts receivable and aging reports, credit and collection risk awareness, revenue-control mindset, audit documentation, SOX / internal-controls awareness, process improvement.",
+      title: "Markets & Finance",
+      body: "Cross-asset macro research, financial analysis, valuation and positioning, risk and thesis invalidation, decision quality under uncertainty.",
     },
     {
-      title: "Accounting & analysis",
-      body: "Financial analysis, balance-sheet thinking, transaction review, variance explanation, structured research, evidence capture, attention to detail.",
+      title: "AI & Agents",
+      body: "Agentic workflows (Hermes, Obsidian-backed memory, Discord), Claude, Codex and Factory AI, agent supervision, output verification, orchestration and human-in-the-loop review.",
     },
     {
-      title: "Excel & tools",
-      body: "Excel, pivot tables, VLOOKUP, XLOOKUP, formulas, Google Sheets, Python-assisted analysis, SQL fundamentals, dashboard thinking, ERP systems awareness.",
+      title: "Build",
+      body: "React, TypeScript, Next.js, Vite, Tailwind, TanStack, Node.js, Express, PostgreSQL, Drizzle, Convex, Better Auth, Expo/React Native, Astro.",
     },
     {
-      title: "Communication & execution",
-      body: "Stakeholder communication, client-facing delivery, documentation, ownership through ambiguity, deadline discipline, clear written communication.",
+      title: "Testing & delivery",
+      body: "Vitest, Supertest, Playwright, Maestro, GitHub, Linear, Sentry, Doppler, Biome — plus process mapping, documentation and operating through ambiguity.",
     },
   ],
 };

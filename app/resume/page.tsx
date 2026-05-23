@@ -6,7 +6,7 @@ import { identity, resume, education, credentials } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Resume — Neith Lopes",
   description:
-    "Curriculum vitae of Neith Lopes — Finance & Investments, macro research and finance operations.",
+    "Neith Lopes — building at the intersection of markets, AI engineering and products. Selected work, experience, skills and education.",
 };
 
 export default function ResumePage() {
@@ -32,6 +32,32 @@ export default function ResumePage() {
             </a>
           </div>
         </header>
+
+        {/* Selected Work */}
+        <section className="flex flex-col gap-6">
+          <h2 className="text-[11px] tracking-[0.18em] uppercase text-body">
+            Selected work
+          </h2>
+          <div className="flex flex-col gap-8">
+            {resume.projects.map((e) => (
+              <div key={e.role + e.org} className="grid grid-cols-[160px_1fr] gap-6">
+                <span className="text-body-s text-body">{e.period}</span>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-body-m text-heading">
+                    {e.org} <span className="text-body">· {e.role}</span>
+                  </h3>
+                  <ul className="flex flex-col gap-1.5 list-disc pl-4">
+                    {e.bullets.map((b, i) => (
+                      <li key={i} className="text-body-s text-body marker:text-white/30">
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Experience */}
         <section className="flex flex-col gap-6">
