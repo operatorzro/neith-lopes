@@ -149,12 +149,12 @@ export const credentials = [
 ];
 
 export const stack = [
-  { name: "Python", category: "Analysis" },
-  { name: "Excel", category: "Modelling" },
-  { name: "SQL", category: "Data" },
-  { name: "Bloomberg", category: "Markets" },
-  { name: "Next.js", category: "Web" },
-  { name: "Notion", category: "Systems" },
+  { name: "Claude", category: "AI Agents", logo: "/stack/claude.svg" },
+  { name: "TypeScript", category: "Language", logo: "/stack/typescript.svg" },
+  { name: "React", category: "Frontend", logo: "/stack/react.svg" },
+  { name: "Next.js", category: "Framework", logo: "/stack/nextjs.svg" },
+  { name: "Tailwind CSS", category: "Styling", logo: "/stack/tailwind.svg" },
+  { name: "Obsidian", category: "Memory", logo: "/stack/obsidian.svg" },
 ];
 
 export const workingOn = [

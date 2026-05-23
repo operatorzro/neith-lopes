@@ -14,7 +14,7 @@ export default function Footer() {
           <LocalTime />
         </p>
         <p className="text-[12px] text-body">
-          Local time in Birmingham, United Kingdom
+          Local time in United Kingdom
         </p>
       </div>
 

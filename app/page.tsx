@@ -74,7 +74,12 @@ export default function Home() {
       <Section title="Stack" id="stack">
         <div className="grid grid-cols-3 gap-4">
           {stack.map((s) => (
-            <StackCard key={s.name} name={s.name} category={s.category} />
+            <StackCard
+              key={s.name}
+              name={s.name}
+              category={s.category}
+              logo={s.logo}
+            />
           ))}
         </div>
       </Section>
