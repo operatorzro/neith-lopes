@@ -5,7 +5,7 @@ import Avatar from "./Avatar";
 import Crossfade from "./Crossfade";
 import { identity } from "@/lib/data";
 
-const roles = ["Finance & AI Operator", "Macro Researcher", "Builder", "Student"];
+const roles = ["Finance Operator", "AI Operator", "Macro Trader", "Builder"];
 
 const pages = [
   { label: "About", href: "/about" },
