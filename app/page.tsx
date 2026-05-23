@@ -42,18 +42,16 @@ export default function Home() {
       {/* Work & Projects */}
       <Section title="Work & Projects" id="work">
         <div className="flex flex-col gap-4">
-          {featured.map((w, i) => (
+          {featured.map((w) => (
             <FeaturedWork
               key={w.name}
               name={w.name}
               role={w.role}
               summary={w.summary}
-              ticker={
-                i === 0
-                  ? ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"]
-                  : undefined
-              }
-              image={i === 1 ? "/work/macro-journal.png" : undefined}
+              logo={w.logo}
+              logoFit={w.logoFit}
+              ticker={w.ticker}
+              image={w.image}
             />
           ))}
           <div className="flex flex-col pt-4">

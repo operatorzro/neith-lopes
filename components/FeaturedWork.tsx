@@ -10,6 +10,8 @@ export default function FeaturedWork({
   ticker,
   image,
   gradient,
+  logo,
+  logoFit = "cover",
   href,
 }: {
   name: string;
@@ -18,6 +20,8 @@ export default function FeaturedWork({
   ticker?: string[];
   image?: string;
   gradient?: string;
+  logo?: string;
+  logoFit?: "contain" | "cover";
   href?: string;
 }) {
   const Wrapper: any = href ? "a" : "article";
@@ -31,16 +35,28 @@ export default function FeaturedWork({
       {/* Left: logo lockup (top) + info (bottom) */}
       <div className="relative z-10 flex flex-1 min-w-0 flex-col justify-between gap-6">
         <div className="flex items-center gap-3">
-          <span className="h-7 w-7 rounded-lg bg-background hairline flex items-center justify-center shrink-0">
-            <DotmSquare1
-              size={16}
-              dotSize={2}
-              speed={1.1}
-              pattern="full"
-              color="rgb(252,252,250)"
-              ariaLabel=""
-            />
-          </span>
+          {logo ? (
+            <span className="h-7 w-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+              <Image
+                src={logo}
+                alt=""
+                width={28}
+                height={28}
+                className={`w-full h-full ${logoFit === "contain" ? "object-contain" : "object-cover"}`}
+              />
+            </span>
+          ) : (
+            <span className="h-7 w-7 rounded-lg bg-background hairline flex items-center justify-center shrink-0">
+              <DotmSquare1
+                size={16}
+                dotSize={2}
+                speed={1.1}
+                pattern="full"
+                color="rgb(252,252,250)"
+                ariaLabel=""
+              />
+            </span>
+          )}
           <span className="text-body-m text-heading">{name}</span>
           <span className="flex items-center gap-1 text-body-s text-body opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
             Explore

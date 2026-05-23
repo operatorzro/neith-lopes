@@ -16,14 +16,40 @@ export const identity = {
   ],
 };
 
-export const work = [
+export type WorkItem = {
+  name: string;
+  role: string;
+  period: string;
+  summary: string;
+  featured: boolean;
+  tags?: string[];
+  logo?: string;
+  logoFit?: "contain" | "cover";
+  ticker?: string[];
+  image?: string;
+};
+
+export const work: WorkItem[] = [
   {
     name: "Neural Edge",
     role: "Macro Research & Decision-Support",
     period: "2026 — Present",
     summary:
-      "Building a research and decision-support platform for serious traders and market operators. Neural Edge organises financial inputs, market evidence, review trails and decision logic across FX, equity indices, commodities and monetary metals.",
-    tags: ["Markets", "AI workflows", "Research systems", "Decision support"],
+      "A research and decision-support platform for serious traders and market operators. Neural Edge organises financial inputs, market evidence, review trails and decision logic across FX, equity indices, commodities and monetary metals.",
+    logo: "/work/neural-edge-logo.svg",
+    logoFit: "contain" as const,
+    ticker: ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"],
+    featured: true,
+  },
+  {
+    name: "Neural OS",
+    role: "Operating System for Solo Founders",
+    period: "2026 — Building",
+    summary:
+      "The team a solo founder doesn't have. Neural OS fills the CEO, CMO, CFO and CTO gaps — acting proactively instead of waiting to be prompted. It learns the business in depth and runs the work between check-ins, built memory-first on Obsidian and a stack purpose-made for founders, not a chat wrapper.",
+    logo: "/work/neural-os-logo.svg",
+    logoFit: "cover" as const,
+    ticker: ["CEO", "CMO", "CFO", "CTO", "Ops", "Growth", "Strategy", "Copy"],
     featured: true,
   },
   {
@@ -32,7 +58,7 @@ export const work = [
     period: "2020 — Present",
     summary:
       "Self-directed research across economic releases, central bank policy, valuation context, positioning, technical conditions and post-outcome review. Focused on cross-asset themes, thesis invalidation and decision quality under uncertainty.",
-    tags: ["Macro", "Trading", "Risk review", "Market research"],
+    image: "/work/macro-journal.png",
     featured: true,
   },
   {
