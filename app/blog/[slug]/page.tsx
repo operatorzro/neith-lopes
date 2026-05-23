@@ -61,6 +61,21 @@ const mdxComponents = {
       {...props}
     />
   ),
+  pre: (props: any) => (
+    <pre
+      className="bg-ui hairline rounded-lg p-4 my-5 overflow-x-auto text-body-s leading-relaxed text-body"
+      {...props}
+    />
+  ),
+  code: (props: any) => (
+    <code className="font-mono text-[0.9em]" {...props} />
+  ),
+  blockquote: (props: any) => (
+    <blockquote
+      className="border-l-2 border-white/20 pl-4 my-5 text-body-m text-heading italic"
+      {...props}
+    />
+  ),
 };
 
 export default function PostPage({ params }: { params: { slug: string } }) {
