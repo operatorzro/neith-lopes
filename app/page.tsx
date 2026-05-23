@@ -92,7 +92,7 @@ export default function Home() {
 
       {/* Contact CTA */}
       <Section title="Contact" id="contact">
-        <InView className="bg-ui rounded-lg p-8 flex flex-col gap-4">
+        <InView className="bg-ui surface rounded-lg p-8 flex flex-col gap-4">
           <h3 className="text-h3 max-w-[600px]">
             I&rsquo;m open to conversations around finance, markets, AI
             workflows, product ideas and graduate opportunities from July 2026.

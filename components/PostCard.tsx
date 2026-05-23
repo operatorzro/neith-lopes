@@ -18,7 +18,7 @@ export default function PostCard({
   return (
     <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-4">
       <div
-        className="relative aspect-[16/9] w-full rounded-lg overflow-hidden hairline"
+        className="relative aspect-[16/9] w-full rounded-lg overflow-hidden surface"
         style={
           post.thumbnail ? undefined : { background: gradients[index % gradients.length] }
         }

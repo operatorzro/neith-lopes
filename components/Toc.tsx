@@ -67,7 +67,7 @@ export default function Toc({
   }
 
   return (
-    <nav className="bg-ui hairline rounded-xl overflow-hidden">
+    <nav className="bg-ui surface rounded-xl overflow-hidden">
       <p className="text-body-m text-heading px-5 py-4 border-b border-white/10">
         In this post
       </p>

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Avatar({ size = 40 }: { size?: number }) {
   return (
     <span
-      className="inline-flex items-center justify-center rounded-full bg-ui hairline overflow-hidden shrink-0"
+      className="inline-flex items-center justify-center rounded-full bg-ui overflow-hidden shrink-0"
       style={{ width: size, height: size }}
     >
       <Image

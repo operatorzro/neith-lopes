@@ -24,7 +24,7 @@ export default function ContactPage() {
         <div className="flex flex-col gap-3 max-w-[420px]">
           <a
             href={`mailto:${identity.email}`}
-            className="flex items-center justify-between bg-ui rounded-lg p-5 hover:bg-white/[0.06] transition-colors"
+            className="flex items-center justify-between bg-ui surface rounded-lg p-5 hover:bg-white/[0.08] transition-colors"
           >
             <span className="text-body-s text-body">Email</span>
             <span className="text-body-m text-heading">{identity.email}</span>
@@ -33,7 +33,7 @@ export default function ContactPage() {
             href={identity.social[0].href}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-between bg-ui rounded-lg p-5 hover:bg-white/[0.06] transition-colors"
+            className="flex items-center justify-between bg-ui surface rounded-lg p-5 hover:bg-white/[0.08] transition-colors"
           >
             <span className="text-body-s text-body">LinkedIn</span>
             <span className="text-body-m text-heading">/neith-lopes ↗</span>

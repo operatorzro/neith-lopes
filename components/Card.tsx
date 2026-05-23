@@ -12,7 +12,7 @@ export default function Card({
   children: ReactNode;
   className?: string;
 }) {
-  const cls = `group relative bg-ui rounded-lg overflow-hidden p-6 ${className}`;
+  const cls = `group surface relative bg-ui rounded-lg overflow-hidden p-6 ${className}`;
   if (!href) return <div className={cls}>{children}</div>;
   if (external)
     return (

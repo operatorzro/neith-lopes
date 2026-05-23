@@ -68,7 +68,7 @@ const mdxComponents = {
   ),
   pre: (props: any) => (
     <pre
-      className="bg-ui hairline rounded-lg p-4 my-6 overflow-x-auto text-body-s leading-relaxed text-body"
+      className="bg-ui surface rounded-lg p-4 my-6 overflow-x-auto text-body-s leading-relaxed text-body"
       {...props}
     />
   ),
@@ -110,7 +110,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               >
                 ← All posts
               </Link>
-              <span className="w-fit hairline rounded-full px-2.5 py-0.5 text-body-s text-body">
+              <span className="w-fit bg-white/[0.05] rounded-full px-2.5 py-0.5 text-body-s text-body">
                 {post.category}
               </span>
               <h1 className="text-[40px] leading-[1.08] tracking-[-0.03em] text-heading">
@@ -132,7 +132,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
             {/* hero image */}
             {post.thumbnail && (
-              <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden hairline">
+              <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden surface">
                 <Image
                   src={post.thumbnail}
                   alt={post.title}

@@ -14,7 +14,7 @@ export default function Toolkit() {
             {g.tools.map((t) => (
               <span
                 key={t.name}
-                className="flex items-center gap-2 hairline rounded-lg bg-ui px-3 py-2"
+                className="flex items-center gap-2 surface-sm rounded-lg bg-ui px-3 py-2"
               >
                 {t.logo ? (
                   <Image
@@ -25,7 +25,7 @@ export default function Toolkit() {
                     className="object-contain"
                   />
                 ) : (
-                  <span className="h-[18px] w-[18px] rounded-[5px] bg-background hairline flex items-center justify-center text-[10px] text-heading">
+                  <span className="h-[18px] w-[18px] rounded-[5px] bg-background flex items-center justify-center text-[10px] text-heading">
                     {t.name[0]}
                   </span>
                 )}

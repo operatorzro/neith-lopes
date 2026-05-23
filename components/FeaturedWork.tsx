@@ -30,7 +30,7 @@ export default function FeaturedWork({
   return (
     <Wrapper
       {...wrapperProps}
-      className="group relative bg-ui rounded-lg overflow-hidden p-6 flex gap-6 min-h-[168px] border border-white/[0.05] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/[0.14] hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.85)]"
+      className="group surface relative bg-ui rounded-lg overflow-hidden p-6 flex gap-6 min-h-[168px] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_2px_6px_rgba(0,0,0,0.5),0_30px_56px_-22px_rgba(0,0,0,0.85)]"
     >
       {/* Left: logo lockup (top) + info (bottom) */}
       <div className="relative z-10 flex flex-1 min-w-0 flex-col justify-between gap-6">
@@ -46,7 +46,7 @@ export default function FeaturedWork({
               />
             </span>
           ) : (
-            <span className="h-7 w-7 rounded-lg bg-background hairline flex items-center justify-center shrink-0">
+            <span className="h-7 w-7 rounded-lg bg-background surface-sm flex items-center justify-center shrink-0">
               <DotmSquare1
                 size={16}
                 dotSize={2}

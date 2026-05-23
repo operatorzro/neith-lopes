@@ -8,8 +8,8 @@ export default function Item({
   return (
     <div className="flex items-center gap-3">
       <span
-        className={`h-4 w-4 rounded-[4px] hairline flex items-center justify-center ${
-          checked ? "bg-heading" : "bg-transparent"
+        className={`h-4 w-4 rounded-[4px] flex items-center justify-center ${
+          checked ? "bg-heading" : "bg-white/[0.07] surface-sm"
         }`}
         aria-hidden
       >

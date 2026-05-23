@@ -29,7 +29,7 @@ export default function Ticker({
         {doubled.map((t, i) => (
           <span
             key={i}
-            className="px-3 py-1.5 rounded-md bg-ui hairline text-body-s text-body"
+            className="px-3 py-1.5 rounded-md bg-ui surface-sm text-body-s text-body"
           >
             {t}
           </span>

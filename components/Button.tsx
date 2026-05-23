@@ -17,7 +17,7 @@ export default function Button({
   const styles =
     variant === "primary"
       ? "bg-heading text-background hover:bg-white"
-      : "hairline text-heading hover:bg-ui";
+      : "surface-sm bg-ui text-heading hover:bg-white/[0.08]";
   const Comp: any = external ? "a" : Link;
   return (
     <Comp
