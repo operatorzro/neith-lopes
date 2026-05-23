@@ -157,7 +157,7 @@ export const toolkit: ToolkitGroup[] = [
     tools: [
       { name: "Claude", logo: "/stack/claude.svg" },
       { name: "Codex" },
-      { name: "Factory AI" },
+      { name: "Factory AI", logo: "/stack/factory.svg" },
     ],
   },
   {
