@@ -7,9 +7,9 @@ readTime: 5
 thumbnail: "/posts/right-size.png"
 ---
 
-There are two ways to get process wrong, and most people only worry about one of them.
+There are two ways to get process wrong, and most people only worry about one.
 
-The first is obvious: no discipline at all. Vague prompt, big diff, ship it, pray. The second is quieter and just as damaging: so much ceremony that you write an architecture decision record for a button colour. Both kill momentum. The skill in [running agentic work well](/blog/operating-system-for-agentic-software) is matching the weight of the process to the risk of the task.
+The obvious one is no discipline at all. Vague prompt, big diff, ship it, hope. The quieter one is so much ceremony that you write an architecture decision record for a button colour. Both kill momentum. The skill in [running agentic work well](/blog/operating-system-for-agentic-software) is matching the weight of the process to the risk of the task.
 
 ## The two ways to get this wrong
 
@@ -18,11 +18,11 @@ Too little process -> agent guesses, breaks architecture, ships unverified work
 Too much process   -> documentation theatre, stale docs, no shipping
 ```
 
-The goal was never to produce documents. It's to make agent work bounded and reversible with the *least* overhead that achieves that. A doc that doesn't change the implementation is waste. A skipped threat model on a payments feature is negligence. The art is knowing which is which.
+The goal was never to produce documents. It is to make agent work bounded and reversible with the least overhead that does the job. A doc that does not change the implementation is waste. A skipped threat model on a payments feature is negligence. The art is knowing which is which.
 
 ## Three modes
 
-So before anything else, I size the work. Thirty seconds for an obvious task, longer for something genuinely unclear.
+So before anything else I size the work. Thirty seconds for an obvious task, longer for something genuinely unclear.
 
 ```text
 Light Mode
@@ -35,7 +35,7 @@ Standard Mode
 
 Full Operating Mode
   high-risk, multi-agent, unclear architecture, migrations, security, portfolio-grade
-  required: the full system - spec, contracts, risk model, evals, structured handoffs, explicit merge gate
+  required: the full system - spec, contracts, risk model, evals, handoffs, merge gate
 ```
 
 The questions that decide the mode are about blast radius, not effort:
@@ -45,11 +45,11 @@ The questions that decide the mode are about blast radius, not effort:
 - Does it need architectural decisions?
 - Can success be verified automatically, or does a human have to judge it?
 
-If the answers are all "low stakes," you're in Light Mode and adding more is theatre. If any answer is "this could cause real damage," you're in Full Mode and skipping steps is how agents cause incidents.
+If every answer is low stakes, you are in Light Mode and adding more is theatre. If any answer is that it could cause real damage, you are in Full Mode and skipping steps is how agents cause incidents.
 
 ## The solo-dev cut
 
-I mostly work solo, so most of my work lives in a trimmed version of the full system — enough structure to stay safe, not so much that I'm maintaining paperwork instead of building:
+I mostly work alone, so most of my work runs a trimmed version of the full system. Enough structure to stay safe, not so much that I maintain paperwork instead of building.
 
 ```text
 1. feature brief
@@ -64,8 +64,8 @@ I mostly work solo, so most of my work lives in a trimmed version of the full sy
 10. retrospective
 ```
 
-Even alone, I structure work as if it'll be reviewed — narrow scope, acceptance criteria, verification commands, a rollback note. Not because anyone's watching, but because "reviewable" and "reversible" are the same properties that keep an agent's work safe.
+Even alone, I structure work as if it will be reviewed: narrow scope, acceptance criteria, verification commands, a rollback note. Not because anyone is watching, but because reviewable and reversible are the same properties that keep an agent's work safe.
 
 ## Match ceremony to reversibility
 
-The whole model collapses to one line: **spend process where mistakes are expensive, and nowhere else.** A copy tweak and a database migration are not the same task and should not get the same treatment. Right-sizing isn't about doing less or more — it's about doing the right amount, decided deliberately, before the agent starts. Get that judgment call right and the discipline stops feeling like overhead and starts feeling like the thing that lets you move fast without breaking what matters.
+The whole model collapses to one line: spend process where mistakes are expensive, and nowhere else. A copy tweak and a database migration are not the same task and should not get the same treatment. Right-sizing is not about doing less or more. It is about deciding the right amount before the agent starts. Get that call right and the discipline stops feeling like overhead and starts being the thing that lets you move fast without breaking what matters.

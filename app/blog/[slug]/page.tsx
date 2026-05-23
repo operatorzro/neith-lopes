@@ -21,9 +21,9 @@ export function generateMetadata({
 }): Metadata {
   try {
     const post = getPost(params.slug);
-    return { title: `${post.title} — Neith Lopes`, description: post.excerpt };
+    return { title: `${post.title} · Neith Lopes`, description: post.excerpt };
   } catch {
-    return { title: "Post — Neith Lopes" };
+    return { title: "Post · Neith Lopes" };
   }
 }
 

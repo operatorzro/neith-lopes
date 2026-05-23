@@ -94,8 +94,9 @@ export default function Home() {
       <Section title="Contact" id="contact">
         <InView className="bg-ui surface rounded-lg p-8 flex flex-col gap-4">
           <h3 className="text-h3 max-w-[600px]">
-            I&rsquo;m open to conversations around finance, markets, AI
-            workflows, product ideas and graduate opportunities from July 2026.
+            I graduate in July 2026 and I&rsquo;m looking for a role where I can
+            build. If you&rsquo;re hiring, working on something, or want to
+            compare notes on markets or AI, email me.
           </h3>
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Button href={`mailto:${identity.email}`} external>

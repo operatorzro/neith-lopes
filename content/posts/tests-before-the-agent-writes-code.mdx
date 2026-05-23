@@ -2,20 +2,20 @@
 title: "Write the Tests Before the Agent Writes the Code"
 date: "2026-05-14"
 category: "Agentic Engineering"
-excerpt: "An agent will build the wrong thing with total confidence. The fix isn't a smarter prompt — it's defining how you'll prove correctness before a single line is written."
+excerpt: "An agent will build the wrong thing with total confidence. The fix is not a smarter prompt. It is deciding how you will prove correctness before a single line is written."
 readTime: 6
 thumbnail: "/posts/tests.png"
 ---
 
-The most dangerous thing about a coding agent isn't that it makes mistakes. It's that it makes them *confidently*, and then tells you it's done. A human junior who's unsure will hedge. An agent will hand you a broken implementation with a cheerful summary.
+The dangerous thing about a coding agent is not that it makes mistakes. It is that it makes them confidently, then tells you it is done. A junior who is unsure will hedge. An agent hands you a broken implementation with a cheerful summary.
 
-You can't prompt your way out of this. The fix is structural: decide how correctness will be proven before the agent builds anything. It's the verification-first half of [my agentic delivery system](/blog/operating-system-for-agentic-software).
+You cannot prompt your way out of this. The fix is structural: decide how correctness gets proven before the agent builds anything. It is the verification-first half of [my agentic delivery system](/blog/operating-system-for-agentic-software).
 
 ## Confidence is not correctness
 
-If verification happens at the end, the agent has already built the wrong thing — and worse, it's already convinced itself the work is good. By the time you discover the gap, you're debugging a confident wrong answer, which is harder than debugging an obvious failure.
+If verification happens at the end, the agent has already built the wrong thing. Worse, it has already convinced itself the work is good. By the time you find the gap you are debugging a confident wrong answer, which is harder than debugging an obvious failure.
 
-So I flip the order. Before implementation starts, the work has to answer one question: *how will we know this is right?* That means writing down, in advance:
+So I flip the order. Before implementation starts, the work has to answer one question: how will we know this is right? That means writing down, in advance:
 
 ```text
 acceptance criteria
@@ -26,20 +26,20 @@ manual QA path
 security and regression checks
 ```
 
-The agent should know exactly how it will prove the work before it touches a file. If it can't be verified, it isn't ready to be built.
+The agent should know exactly how it will prove the work before it touches a file. If it cannot be verified, it is not ready to be built.
 
 ## Two pyramids
 
-For ordinary software, the classic test pyramid still applies:
+For ordinary software the classic test pyramid still applies:
 
 ```text
 unit tests        - fast, isolated
 integration tests - module boundaries
-e2e tests          - user flows
-manual QA          - judgment and visual checks
+e2e tests         - user flows
+manual QA         - judgment and visual checks
 ```
 
-But agentic features need a second pyramid on top, because the failure modes are different — hallucination, drift, prompt injection:
+Agentic features need a second pyramid on top, because the failure modes are different: hallucination, drift, prompt injection.
 
 ```text
 schema checks      - is the output even the right shape?
@@ -50,11 +50,11 @@ regression evals   - catch behaviour drift over time
 human review       - judgment and high-risk calls
 ```
 
-A normal test asks "does the function return the right value?" An eval asks "does the model behave the way we need across the inputs that matter?" If your system makes decisions with an LLM, you need both.
+A normal test asks whether a function returns the right value. An eval asks whether the model behaves the way you need across the inputs that matter. If your system makes decisions with an LLM, you need both.
 
 ## Golden examples
 
-The workhorse of agentic verification is the golden example — a frozen input with an expected output and, crucially, a list of things the output must *not* do:
+The workhorse of agentic verification is the golden example: a frozen input, an expected output, and a list of things the output must not do.
 
 ```json
 {
@@ -66,11 +66,11 @@ The workhorse of agentic verification is the golden example — a frozen input w
 }
 ```
 
-That `mustNot` array is where the real protection lives. It encodes the failure modes you actually fear — fabrication, unsafe tool calls — and turns them into something a test can catch.
+That `mustNot` array is where the real protection lives. It encodes the failure modes you actually fear, like fabrication or an unsafe tool call, and turns them into something a test can catch.
 
 ## The completion standard
 
-The rule I hold every agent to: it does not get to say "done." It gets to report, and the report has a required shape.
+The rule I hold every agent to: it does not get to say "done." It reports, and the report has a required shape.
 
 ```text
 checks run
@@ -81,8 +81,8 @@ behaviour verified
 known limitations
 ```
 
-If a command couldn't be run, it has to say so. "Done" with no evidence is not done — it's a guess wearing a confident voice. This one rule catches an enormous amount, because it forces the agent to actually run the verification it claimed to.
+If a command could not run, it has to say so. "Done" with no evidence is a guess in a confident voice. This one rule catches a lot, because it forces the agent to actually run the verification it claimed to.
 
 ## Verify early, not at the end
 
-None of this is exotic. It's the oldest engineering wisdom there is — define correctness before you build — applied to a collaborator that happens to be very fast and very sure of itself. Tests and evals written up front turn an agent from something you have to babysit into something you can actually trust to iterate. Which is the whole point: not less verification because the agent is good, but *earlier* verification because the agent is confident.
+None of this is exotic. It is the oldest rule in engineering, to define correctness before you build, applied to a collaborator that is very fast and very sure of itself. Tests and evals written up front turn an agent from something you babysit into something you can let iterate. The change is not more verification because the agent is good. It is earlier verification because the agent is confident.

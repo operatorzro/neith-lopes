@@ -2,18 +2,18 @@
 title: "Tools Are the Dangerous Part, Not the Model"
 date: "2026-05-18"
 category: "Agentic Engineering"
-excerpt: "The scary part of an agentic system isn't the text it generates — it's the moment that text becomes a tool call that sends an email, drops a table, or charges a card. Here's how I govern tools."
+excerpt: "The risky part of an agentic system is not the text it generates. It is the moment that text becomes a tool call that sends an email, drops a table, or charges a card. Here is how I govern tools."
 readTime: 6
 thumbnail: "/posts/tools.png"
 ---
 
-When people worry about AI agents, they worry about the model saying something wrong. That's the wrong fear. A wrong sentence is harmless. A wrong *tool call* is what deletes the row, emails the customer, or charges the card.
+When people worry about AI agents, they picture the model saying something wrong. That is the wrong fear. A wrong sentence is harmless. A wrong tool call is what deletes the row, emails the customer, or charges the card.
 
-This is the part of [my agentic delivery system](/blog/operating-system-for-agentic-software) I'm most strict about, because it's where the real damage lives.
+This is the part of [my agentic delivery system](/blog/operating-system-for-agentic-software) I am strictest about, because it is where the real damage lives.
 
 ## Where the real risk lives
 
-Text generation is reversible — you read it, you discard it. Tool use is where an agent reaches out and changes the world. So the most serious risk in any agentic system comes from tools, not from tokens. Anything that does one of these deserves suspicion:
+Text generation is reversible. You read it, you discard it. Tool use is where an agent reaches out and changes the world, so the serious risk lives there, not in the tokens. Anything that does one of these deserves suspicion:
 
 ```text
 sends external communication
@@ -26,11 +26,11 @@ calls a third-party API
 changes permissions
 ```
 
-Each of those is a one-way door. The model proposing to walk through it is fine. The system letting it walk through unsupervised is not.
+Each one is a one-way door. The model proposing to walk through it is fine. The system letting it walk through unsupervised is not.
 
 ## Classify every tool
 
-Before an agent can touch a tool, that tool gets a risk level. This single step removes most surprises:
+Before an agent can touch a tool, that tool gets a risk level. This one step removes most surprises:
 
 ```text
 Low       read-only / local-only      read file, search repo, run tests     no approval
@@ -39,7 +39,7 @@ High      external mutation / data    send email, write DB, deploy, API      yes
 Critical  irreversible / financial    payment, deletion, prod migration      mandatory
 ```
 
-The rule that follows is simple: approval requirements scale with reversibility. Reading a file needs nothing. Deploying needs a human. The agent doesn't get to decide which bucket a tool is in — I do, up front.
+The rule that follows is simple: approval scales with reversibility. Reading a file needs nothing. Deploying needs a human. The agent does not decide which bucket a tool sits in. I do, up front.
 
 ## The tool contract
 
@@ -59,18 +59,16 @@ Failure behaviour  what happens on error
 Idempotency        how retries and duplicates are handled
 ```
 
-The two fields people skip — **dry-run** and **idempotency** — are the ones that save you. A dry-run lets a high-risk action be inspected before it fires. An idempotency key means a retried payment doesn't become two payments.
+The two fields people skip are the ones that save you: dry-run and idempotency. A dry-run lets a high-risk action be inspected before it fires. An idempotency key means a retried payment does not become two payments.
 
 ## Read before you write
 
-A pattern I enforce everywhere: agents explore in read-only mode before they're allowed to mutate. Let the agent search the repo, read the schema, run the tests, and propose a plan — all safely — before any tool with write access is on the table. Most mistakes are caught in the gap between "here's what I'll do" and actually doing it.
+A pattern I enforce everywhere: agents explore in read-only mode before they can mutate anything. Let the agent search the repo, read the schema, run the tests, and propose a plan, all of it safely, before any tool with write access is on the table. Most mistakes get caught in the gap between "here is what I will do" and actually doing it.
 
 ## Treat model output as a proposal
 
-The mental model that ties it together:
+> Every model output is a proposal, not trusted executable truth.
 
-> Every LLM output is a proposal, not trusted executable truth.
+Model text should never flow straight into a tool call. You validate it against a schema, check it against business rules, and for anything irreversible you put a human in the loop. The agent suggests. Deterministic code and I decide. That is not distrust of the model. It is the same discipline you would apply to any component that can reach production.
 
-Model text should never flow directly into a tool call without validation in between. You validate the input against a schema, check it against business rules, and — for anything irreversible — put a human in the loop. The agent suggests; deterministic code and I decide. That's not a lack of trust in the model. It's the same discipline you'd apply to any system component that can reach production.
-
-Get this layer right and agents become genuinely safe to run. Get it wrong and it only takes one unsupervised tool call to find out.
+Get this layer right and agents become safe to run. Get it wrong and one unsupervised tool call is enough to find out.

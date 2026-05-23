@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import { identity } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact — Neith Lopes",
+  title: "Contact · Neith Lopes",
   description:
     "Get in touch with Neith Lopes about finance, markets, AI workflows and graduate opportunities.",
 };
@@ -17,9 +17,9 @@ export default function ContactPage() {
           Let&rsquo;s talk.
         </h1>
         <p className="text-body-m text-body max-w-[560px]">
-          I&rsquo;m open to conversations around finance, markets, AI workflows,
-          product ideas and graduate opportunities from July 2026. The fastest
-          way to reach me is email.
+          I graduate in July 2026 and I&rsquo;m looking for a role where I can
+          build. If you&rsquo;re hiring, building something, or want to compare
+          notes on markets or AI, email is the fastest way to reach me.
         </p>
         <div className="flex flex-col gap-3 max-w-[420px]">
           <a

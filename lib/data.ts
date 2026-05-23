@@ -3,9 +3,9 @@ export const identity = {
   role: "Finance & AI Operator",
   tagline: "Markets, systems and execution.",
   location: "Birmingham, UK · Singapore Citizen",
-  bio: "I'm a finance-trained operator building at the intersection of markets, AI workflows and practical execution. This site is a home for my work, projects, writing and experiments.",
+  bio: "I study finance, build software with AI agents, and trade my own research. Most of what I make ends up here: the products I'm building, what I write, and what I'm still working out.",
   about:
-    "I'm a Singaporean final-year Finance & Investments student based in the UK, graduating in July 2026. My work sits between financial markets, AI-supported workflows and practical operating systems. I'm interested in how better tools, clearer research processes and tighter feedback loops can improve decisions in finance, trading, startups and operations.",
+    "I'm a Singaporean finance and investments student in the UK, graduating in July 2026. My time goes to three things: studying markets, building software with AI agents, and running my own research and trades. What connects them is a habit of taking a messy process and turning it into a system I can run again and check.",
   email: "neithlopes@gmail.com",
   social: [
     {

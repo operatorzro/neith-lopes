@@ -2,65 +2,65 @@
 title: "An Operating System for Shipping Software with AI Agents"
 date: "2026-05-22"
 category: "Agentic Engineering"
-excerpt: "AI coding agents don't fail because they're weak. They fail because we point them at vague intent and trust whatever comes back. Here's the system I use to keep agent work bounded, inspectable, and reversible."
+excerpt: "AI coding agents don't fail because they're weak. They fail because we point them at vague intent and trust whatever comes back. Here is the system I use to keep their work bounded, inspectable, and reversible."
 readTime: 9
 thumbnail: "/posts/operating-system.png"
 ---
 
-Most people use AI to code like this: they describe a feature in a sentence, let the agent generate a few hundred lines, skim the diff, and ship it. It works until it doesn't — and when it stops working, it stops badly. A vague prompt becomes a large uncontrolled change, which quietly breaks the architecture, which gets verified shallowly, which becomes impossible to review.
+Most people use AI to code the same way. They describe a feature in a sentence, let the agent generate a few hundred lines, skim the diff, and ship. It works until it doesn't, and when it breaks it breaks badly. A vague prompt becomes a large change nobody fully reviewed, which quietly breaks the architecture, which gets caught too late.
 
-I build this way for real — Neural Edge, Neural OS, a booking platform, a few smaller products — and the difference between casually using AI and actually delivering with it isn't the model. It's the system around the model. So I wrote mine down.
+I build this way for real: Neural Edge, Neural OS, a booking platform, a few smaller products. The difference between casually using AI and actually shipping with it is not the model. It is the system around the model. So I wrote mine down.
 
 ## The failure mode nobody admits
 
-The honest version of how AI-assisted development usually goes:
+Here is how AI-assisted development usually goes:
 
 ```text
 vague prompt -> large uncontrolled change -> broken architecture -> shallow verification -> difficult review
 ```
 
-Every step makes the next one worse. The agent guesses the product because you never defined it. It guesses the architecture because there were no contracts. It says "done" because nothing told it what done means. And by the time you're reviewing, the change is too big and too entangled to reason about.
+Every step makes the next one worse. The agent guesses the product because nobody defined it. It guesses the architecture because there were no contracts. It says "done" because nothing told it what done means. By the time you review, the change is too big and too tangled to reason about.
 
-The model isn't the problem. The absence of engineering discipline is. Coding agents are genuinely useful — but only when they're surrounded by the same controls a good team would demand from a human: clear intent, written context, contracts, tests, tool limits, small reviewable units, human review, and a retrospective.
+The model is not the problem. The missing piece is engineering discipline. Coding agents become useful once you surround them with the controls a good team already expects from a person: clear intent, written context, contracts, tests, tool limits, small reviewable units, human review, and a retrospective.
 
 ## The pattern that actually works
 
-The fix is to replace one big leap with a sequence of small, controlled steps:
+Replace one big leap with a sequence of small, controlled steps:
 
 ```text
 Intent -> Context -> Spec -> Contracts -> Tests/Evals -> Vertical Slice -> PR Loop -> Review -> Ship -> Retrospective
 ```
 
-Each stage exists to remove a specific kind of guessing:
+Each stage removes a specific kind of guessing.
 
-- **Intent** defines the problem, the user, what success looks like, and what's out of scope — before any code.
-- **Context** forces the agent to read the existing system instead of inventing an architecture that conflicts with reality.
+- **Intent** sets the problem, the user, what success looks like, and what is out of scope, before any code.
+- **Context** makes the agent read the existing system instead of inventing an architecture that fights it.
 - **Spec** turns intent into testable behaviour: happy paths, failure paths, edge cases, acceptance criteria.
-- **Contracts** give the agent hard interfaces — schemas, endpoints, tool signatures — to implement against, not vibes.
-- **Tests and evals** define how correctness will be proven, written *before* the build, not bolted on after.
-- **Vertical slice** ships the smallest end-to-end version that proves the core value with real architecture.
-- **PR loop** expands the system in small, reviewable increments instead of one heroic commit.
+- **Contracts** give the agent hard interfaces to build against. Schemas, endpoints, tool signatures, not vibes.
+- **Tests and evals** define how correctness gets proven, written before the build instead of bolted on after.
+- **Vertical slice** ships the smallest end to end version that proves the core value on real architecture.
+- **PR loop** grows the system in small reviewable increments instead of one heroic commit.
 - **Review, ship, retro** treat review as a control point and feed every lesson back into the process.
 
-The whole point is to make the agent's work **bounded, inspectable, testable, and reversible**. If a change can't be reviewed or rolled back, the process failed regardless of whether the code runs.
+The point is to keep the agent's work bounded, inspectable, testable, and reversible. If a change cannot be reviewed or rolled back, the process failed, whether or not the code runs.
 
 ## Five layers, not one system prompt
 
-People try to control agents with a single clever system prompt. That's not enough — one prompt can't govern repository hygiene, tool permissions, and multi-agent handoffs at the same time. I think of it as five layers:
+People try to control agents with one clever system prompt. It is never enough. A single prompt cannot govern repository hygiene, tool permissions, and multi-agent handoffs at the same time. I split it into five layers:
 
 ```text
-Layer 1: Delivery Workflow      - turns an idea into scoped, testable, reviewable work
-Layer 2: Agent Constitution     - how the agent plans, asks, verifies, respects boundaries
+Layer 1: Delivery Workflow       - turns an idea into scoped, testable, reviewable work
+Layer 2: Agent Constitution      - how the agent plans, asks, verifies, respects boundaries
 Layer 3: Execution & GitHub      - repos, branches, PRs, CI checks, merge authority
 Layer 4: Skills & System Context - reusable project capabilities without bloating prompts
 Layer 5: Multi-Agent Model       - orchestrators, workers, reviewers, handoffs, merge gates
 ```
 
-The system is only *complete* when all five exist. But — and this matters — not every task needs all five running at full strength. A one-line copy fix doesn't need a threat model. A payments integration absolutely does.
+The system is only complete when all five exist. Not every task needs all five at full strength. A one-line copy fix does not need a threat model. A payments integration does.
 
 ## Right-size, or drown
 
-The trap on the other side of "no process" is documentation theatre: writing an architecture decision record for a button colour. So the first decision on any task is how much ceremony it deserves.
+The opposite failure is documentation theatre: writing an architecture decision record for a button colour. So the first call on any task is how much process it deserves.
 
 ```text
 Light Mode     - small fixes, copy, simple refactors, low-risk UI
@@ -68,11 +68,11 @@ Standard Mode  - normal features, endpoints, UI flows, integrations
 Full Mode      - high-risk, multi-agent, migrations, security, portfolio-grade work
 ```
 
-Use the smallest mode that still gives you control. The goal isn't to produce documents — it's to make sure risky work never proceeds on a vague prompt, and trivial work never drowns in paperwork. (I go deeper on this in [Right-Size the Process](/blog/right-size-the-process).)
+Use the smallest mode that still gives control. The goal is not to produce documents. It is to make sure risky work never runs off a vague prompt, and trivial work never drowns in paperwork. I go deeper on this in [Right-Size the Process](/blog/right-size-the-process).
 
 ## Who owns what
 
-The single rule that holds the whole thing together is a clear division of authority between the human, the software, and the agent:
+One rule holds the whole thing together: a clear split of authority between the human, the software, and the agent.
 
 ```text
 The human owns intent and risk.
@@ -84,8 +84,8 @@ The agent handles ambiguity and implementation assistance.
 The review loop decides whether the work is good enough.
 ```
 
-Notice what the agent does *not* own: scope, correctness, or risk. Those stay with deterministic systems and with me. The agent is brilliant at the ambiguous middle — exploring a codebase, drafting an implementation, proposing tests, reviewing a diff. It should not be the thing that decides whether your migration is safe.
+Notice what the agent does not own: scope, correctness, or risk. Those stay with deterministic systems and with me. The agent is strong at the ambiguous middle, like exploring a codebase, drafting an implementation, proposing tests, or reviewing a diff. It should not be the thing that decides whether your migration is safe.
 
-Two ideas in here are big enough to deserve their own treatment: that [the tools are the dangerous part, not the model](/blog/tools-are-the-dangerous-part), and that [you should write the tests before the agent writes the code](/blog/tests-before-the-agent-writes-code).
+Two ideas here deserve their own posts: that [the tools are the dangerous part, not the model](/blog/tools-are-the-dangerous-part), and that [you write the tests before the agent writes the code](/blog/tests-before-the-agent-writes-code).
 
-That's the difference between casually using AI to code and running a disciplined delivery system. The model keeps getting better. The discipline is what makes it safe to trust.
+That is the gap between casually using AI to code and running a delivery system. The model keeps improving. The discipline is what makes it safe to hand work to.
