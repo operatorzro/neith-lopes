@@ -7,7 +7,7 @@ import Button from "@/components/Button";
 import Item from "@/components/Item";
 import Toolkit from "@/components/Toolkit";
 import PostCard from "@/components/PostCard";
-import { Stagger, StaggerItem, InView } from "@/components/Motion";
+import { Stagger, StaggerItem } from "@/components/Motion";
 import { identity, work, workingOn } from "@/lib/data";
 import { getAllPosts } from "@/lib/posts";
 
@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* Work & Projects */}
       <Section title="Work & Projects" id="work">
-        <InView className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {featured.map((w) => (
             <FeaturedWork
               key={w.name}
@@ -56,16 +56,16 @@ export default function Home() {
               image={w.image}
             />
           ))}
-        </InView>
+        </div>
       </Section>
 
       {/* Latest Posts */}
       <Section title="Latest Posts" id="posts">
-        <InView className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
           {posts.map((p, i) => (
             <PostCard key={p.slug} post={p} index={i} />
           ))}
-        </InView>
+        </div>
         <Link
           href="/blog"
           className="text-body-s text-body hover:text-heading transition-colors w-fit"
@@ -76,23 +76,21 @@ export default function Home() {
 
       {/* Toolkit */}
       <Section title="Toolkit" id="toolkit">
-        <InView>
-          <Toolkit />
-        </InView>
+        <Toolkit />
       </Section>
 
       {/* Working On */}
       <Section title="Working On" id="working-on">
-        <InView className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-3">
           {workingOn.map((w) => (
             <Item key={w.label} label={w.label} checked={w.done} />
           ))}
-        </InView>
+        </div>
       </Section>
 
       {/* Contact CTA */}
       <Section title="Contact" id="contact">
-        <InView className="bg-ui surface rounded-lg p-8 flex flex-col gap-4">
+        <div className="bg-ui surface rounded-lg p-8 flex flex-col gap-4">
           <h3 className="text-h3 max-w-[600px]">
             I graduate in July 2026 and I&rsquo;m looking for a role where I can
             build. If you&rsquo;re hiring, working on something, or want to
@@ -106,7 +104,7 @@ export default function Home() {
               Contact page
             </Button>
           </div>
-        </InView>
+        </div>
       </Section>
 
       <Footer />
