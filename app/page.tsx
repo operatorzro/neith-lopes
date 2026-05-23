@@ -36,10 +36,7 @@ export default function Home() {
         </StaggerItem>
         <StaggerItem className="mt-5">
           <div className="flex items-center gap-3">
-            <Button href="#work">See work</Button>
-            <Button href="/contact" variant="ghost">
-              Get in touch
-            </Button>
+            <Button href="/contact">Get in touch</Button>
           </div>
         </StaggerItem>
       </Stagger>
