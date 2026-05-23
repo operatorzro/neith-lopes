@@ -30,13 +30,13 @@ export default function FeaturedWork({
   return (
     <Wrapper
       {...wrapperProps}
-      className="group relative bg-ui rounded-lg overflow-hidden p-6 flex gap-6 min-h-[168px]"
+      className="group relative bg-ui rounded-lg overflow-hidden p-6 flex gap-6 min-h-[168px] border border-white/[0.05] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/[0.14] hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.85)]"
     >
       {/* Left: logo lockup (top) + info (bottom) */}
       <div className="relative z-10 flex flex-1 min-w-0 flex-col justify-between gap-6">
         <div className="flex items-center gap-3">
           {logo ? (
-            <span className="h-7 w-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+            <span className="h-7 w-7 rounded-lg overflow-hidden flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src={logo}
                 alt=""
@@ -58,18 +58,6 @@ export default function FeaturedWork({
             </span>
           )}
           <span className="text-body-m text-heading">{name}</span>
-          <span className="flex items-center gap-1 text-body-s text-body opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-            Explore
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
-              <path
-                d="M3 9L9 3M9 3H4M9 3V8"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
         </div>
         <div className="flex flex-col gap-1 max-w-[320px]">
           <span className="text-body-m text-heading">{role}</span>
@@ -116,6 +104,15 @@ export default function FeaturedWork({
         {/* left-edge fade so text stays readable */}
         <div className="absolute inset-0 bg-gradient-to-r from-ui via-ui/60 to-transparent" />
       </div>
+
+      {/* hover sheen */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "radial-gradient(130% 90% at 100% 0%, rgba(255,255,255,0.07), transparent 55%)",
+        }}
+      />
     </Wrapper>
   );
 }

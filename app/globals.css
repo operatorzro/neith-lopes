@@ -26,3 +26,11 @@
   .hairline { border: 1px solid rgba(255, 255, 255, 0.1); }
   .text-balance { text-wrap: balance; }
 }
+
+/* Blog article: larger, brighter lead paragraph */
+.article-prose > p:first-of-type {
+  font-size: 19px;
+  line-height: 1.7;
+  color: rgb(252 252 250);
+  margin-top: 0;
+}

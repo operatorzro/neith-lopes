@@ -2,7 +2,13 @@
 import { useEffect, useState } from "react";
 import type { Heading } from "@/lib/posts";
 
-export default function Toc({ headings }: { headings: Heading[] }) {
+export default function Toc({
+  headings,
+  variant = "inline",
+}: {
+  headings: Heading[];
+  variant?: "inline" | "sidebar";
+}) {
   const [active, setActive] = useState("");
 
   useEffect(() => {
@@ -22,14 +28,37 @@ export default function Toc({ headings }: { headings: Heading[] }) {
 
   if (headings.length === 0) return null;
 
-  const go = (id: string) => {
+  const go = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+
+  if (variant === "sidebar") {
+    return (
+      <nav className="sticky top-24 flex flex-col gap-1">
+        <p className="text-[11px] uppercase tracking-[0.18em] text-body mb-3">
+          On this page
+        </p>
+        {headings.map((h) => (
+          <button
+            key={h.id}
+            type="button"
+            onClick={() => go(h.id)}
+            className={`text-left text-body-s leading-snug py-1.5 pl-3 border-l-2 transition-colors ${
+              active === h.id
+                ? "border-heading text-heading"
+                : "border-white/10 text-body hover:text-heading hover:border-white/30"
+            }`}
+          >
+            {h.text}
+          </button>
+        ))}
+      </nav>
+    );
+  }
 
   return (
-    <nav className="bg-ui hairline rounded-xl overflow-hidden my-2">
+    <nav className="bg-ui hairline rounded-xl overflow-hidden">
       <p className="text-body-m text-heading px-5 py-4 border-b border-white/10">
-        In this post:
+        In this post
       </p>
       <ul className="flex flex-col">
         {headings.map((h) => (
