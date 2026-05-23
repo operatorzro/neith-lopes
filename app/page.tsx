@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import Item from "@/components/Item";
 import Toolkit from "@/components/Toolkit";
 import PostCard from "@/components/PostCard";
+import { Stagger, StaggerItem, InView } from "@/components/Motion";
 import { identity, work, workingOn } from "@/lib/data";
 import { getAllPosts } from "@/lib/posts";
 
@@ -16,30 +17,36 @@ export default function Home() {
 
   return (
     <main className="w-full max-w-page mx-auto flex flex-col items-center">
-      {/* Top: Nav + Hero */}
-      <div className="w-full max-w-content px-16 pt-12 pb-8 flex flex-col gap-12">
-        <Nav name={identity.name} />
-        <div className="flex flex-col gap-3">
-          <h1 className="text-h1 text-heading max-w-[680px]">
+      {/* Top: Nav + Hero (staggered entrance on load) */}
+      <Stagger className="w-full max-w-content px-16 pt-12 pb-8 flex flex-col">
+        <StaggerItem className="mb-12">
+          <Nav name={identity.name} />
+        </StaggerItem>
+        <StaggerItem>
+          <h1 className="text-h1 text-heading max-w-[680px] text-balance">
             Markets, systems and{" "}
             <em className="font-serif font-normal italic tracking-normal">
               execution
             </em>
             .
           </h1>
+        </StaggerItem>
+        <StaggerItem className="mt-3">
           <p className="text-body-m text-body max-w-[495px]">{identity.bio}</p>
-          <div className="flex items-center gap-3 pt-2">
+        </StaggerItem>
+        <StaggerItem className="mt-5">
+          <div className="flex items-center gap-3">
             <Button href="#work">See work</Button>
             <Button href="/contact" variant="ghost">
               Get in touch
             </Button>
           </div>
-        </div>
-      </div>
+        </StaggerItem>
+      </Stagger>
 
       {/* Work & Projects */}
       <Section title="Work & Projects" id="work">
-        <div className="flex flex-col gap-4">
+        <InView className="flex flex-col gap-4">
           {featured.map((w) => (
             <FeaturedWork
               key={w.name}
@@ -52,16 +59,16 @@ export default function Home() {
               image={w.image}
             />
           ))}
-        </div>
+        </InView>
       </Section>
 
       {/* Latest Posts */}
       <Section title="Latest Posts" id="posts">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+        <InView className="grid grid-cols-2 gap-x-8 gap-y-10">
           {posts.map((p, i) => (
             <PostCard key={p.slug} post={p} index={i} />
           ))}
-        </div>
+        </InView>
         <Link
           href="/blog"
           className="text-body-s text-body hover:text-heading transition-colors w-fit"
@@ -72,21 +79,23 @@ export default function Home() {
 
       {/* Toolkit */}
       <Section title="Toolkit" id="toolkit">
-        <Toolkit />
+        <InView>
+          <Toolkit />
+        </InView>
       </Section>
 
       {/* Working On */}
       <Section title="Working On" id="working-on">
-        <div className="grid grid-cols-3 gap-x-6 gap-y-3">
+        <InView className="grid grid-cols-3 gap-x-6 gap-y-3">
           {workingOn.map((w) => (
             <Item key={w.label} label={w.label} checked={w.done} />
           ))}
-        </div>
+        </InView>
       </Section>
 
       {/* Contact CTA */}
       <Section title="Contact" id="contact">
-        <div className="bg-ui rounded-lg p-8 flex flex-col gap-4">
+        <InView className="bg-ui rounded-lg p-8 flex flex-col gap-4">
           <h3 className="text-h3 max-w-[600px]">
             I&rsquo;m open to conversations around finance, markets, AI
             workflows, product ideas and graduate opportunities from July 2026.
@@ -99,7 +108,7 @@ export default function Home() {
               Contact page
             </Button>
           </div>
-        </div>
+        </InView>
       </Section>
 
       <Footer />
