@@ -2,7 +2,6 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import Section from "@/components/Section";
 import FeaturedWork from "@/components/FeaturedWork";
-import ExperienceRow from "@/components/ExperienceRow";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import Item from "@/components/Item";
@@ -13,7 +12,6 @@ import { getAllPosts } from "@/lib/posts";
 
 export default function Home() {
   const featured = work.filter((w) => w.featured);
-  const rest = work.filter((w) => !w.featured);
   const posts = getAllPosts().slice(0, 4);
 
   return (
@@ -54,17 +52,6 @@ export default function Home() {
               image={w.image}
             />
           ))}
-          <div className="flex flex-col pt-4">
-            {rest.map((w) => (
-              <ExperienceRow
-                key={w.name}
-                role={w.role}
-                org={w.name}
-                period={w.period}
-                summary={w.summary}
-              />
-            ))}
-          </div>
         </div>
       </Section>
 

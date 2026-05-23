@@ -59,3 +59,26 @@ export function formatDate(date: string): string {
     year: "numeric",
   });
 }
+
+export function slugify(s: string): string {
+  return s
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export interface Heading {
+  id: string;
+  text: string;
+}
+
+export function getHeadings(content: string): Heading[] {
+  return content
+    .split("\n")
+    .filter((line) => /^##\s+/.test(line))
+    .map((line) => {
+      const text = line.replace(/^##\s+/, "").trim();
+      return { id: slugify(text), text };
+    });
+}

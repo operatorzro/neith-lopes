@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { formatDate, type PostMeta } from "@/lib/posts";
+import { type PostMeta } from "@/lib/posts";
 
 const gradients = [
   "radial-gradient(130% 130% at 20% 20%, #2a2f24 0%, #14160f 45%, #0a0a0a 80%)",
@@ -16,7 +16,7 @@ export default function PostCard({
   index?: number;
 }) {
   return (
-    <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-3">
+    <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-4">
       <div
         className="relative aspect-[16/9] w-full rounded-lg overflow-hidden hairline"
         style={
@@ -32,18 +32,12 @@ export default function PostCard({
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
         )}
-        <span className="absolute left-3 top-3 z-10 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-0.5 text-body-s text-heading">
-          {post.category}
-        </span>
       </div>
       <div className="flex flex-col gap-1">
         <h3 className="text-[18px] leading-snug tracking-[-0.02em] text-heading group-hover:opacity-80 transition-opacity">
           {post.title}
         </h3>
-        <span className="text-body-s text-body">
-          {formatDate(post.date)}
-          {post.readTime > 0 && ` · ${post.readTime} min read`}
-        </span>
+        <span className="text-body-s text-body">{post.category}</span>
       </div>
     </Link>
   );

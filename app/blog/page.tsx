@@ -14,10 +14,15 @@ export default function BlogPage() {
   return (
     <PageShell>
       <div className="w-full max-w-content px-16 pb-20 flex flex-col gap-10">
-        <header className="flex flex-col gap-2">
-          <h1 className="text-h1 text-heading">Blog</h1>
-          <p className="text-body-m text-body max-w-[560px]">
-            Notes on markets, AI workflows, research systems and building.
+        <header className="flex flex-col gap-3">
+          <h1 className="text-h1 text-heading">
+            Welcome to the{" "}
+            <em className="font-serif font-normal italic tracking-normal">blog</em>.
+          </h1>
+          <p className="text-body-m text-body max-w-[603px]">
+            Notes on markets, AI workflows, research systems and building from
+            zero to one — what I&rsquo;m learning as I build Neural Edge and
+            Neural OS.
           </p>
         </header>
         <div className="grid grid-cols-2 gap-x-8 gap-y-10">
