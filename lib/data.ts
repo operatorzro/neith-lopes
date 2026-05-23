@@ -148,13 +148,41 @@ export const credentials = [
   "Private Equity & Venture Capital, Università Bocconi",
 ];
 
-export const stack = [
-  { name: "Claude", category: "AI Agents", logo: "/stack/claude.svg" },
-  { name: "TypeScript", category: "Language", logo: "/stack/typescript.svg" },
-  { name: "React", category: "Frontend", logo: "/stack/react.svg" },
-  { name: "Next.js", category: "Framework", logo: "/stack/nextjs.svg" },
-  { name: "Tailwind CSS", category: "Styling", logo: "/stack/tailwind.svg" },
-  { name: "Obsidian", category: "Memory", logo: "/stack/obsidian.svg" },
+export type Tool = { name: string; logo?: string };
+export type ToolkitGroup = { group: string; tools: Tool[] };
+
+export const toolkit: ToolkitGroup[] = [
+  {
+    group: "AI & Agents",
+    tools: [
+      { name: "Claude", logo: "/stack/claude.svg" },
+      { name: "Codex" },
+      { name: "Factory AI" },
+    ],
+  },
+  {
+    group: "Knowledge & Comms",
+    tools: [
+      { name: "Obsidian", logo: "/stack/obsidian.svg" },
+      { name: "Discord", logo: "/stack/discord.svg" },
+    ],
+  },
+  {
+    group: "Build",
+    tools: [
+      { name: "TypeScript", logo: "/stack/typescript.svg" },
+      { name: "React", logo: "/stack/react.svg" },
+      { name: "Next.js", logo: "/stack/nextjs.svg" },
+      { name: "Tailwind CSS", logo: "/stack/tailwind.svg" },
+    ],
+  },
+  {
+    group: "Ship & Ops",
+    tools: [
+      { name: "GitHub", logo: "/stack/github.svg" },
+      { name: "Linear", logo: "/stack/linear.svg" },
+    ],
+  },
 ];
 
 export const workingOn = [

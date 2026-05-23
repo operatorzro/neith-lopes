@@ -5,9 +5,9 @@ import FeaturedWork from "@/components/FeaturedWork";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import Item from "@/components/Item";
-import StackCard from "@/components/StackCard";
+import Toolkit from "@/components/Toolkit";
 import PostCard from "@/components/PostCard";
-import { identity, work, stack, workingOn } from "@/lib/data";
+import { identity, work, workingOn } from "@/lib/data";
 import { getAllPosts } from "@/lib/posts";
 
 export default function Home() {
@@ -70,18 +70,9 @@ export default function Home() {
         </Link>
       </Section>
 
-      {/* Stack */}
-      <Section title="Stack" id="stack">
-        <div className="grid grid-cols-3 gap-4">
-          {stack.map((s) => (
-            <StackCard
-              key={s.name}
-              name={s.name}
-              category={s.category}
-              logo={s.logo}
-            />
-          ))}
-        </div>
+      {/* Toolkit */}
+      <Section title="Toolkit" id="toolkit">
+        <Toolkit />
       </Section>
 
       {/* Working On */}
