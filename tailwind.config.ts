@@ -13,6 +13,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["Satoshi", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["Instrument Serif", "ui-serif", "Georgia", "serif"],
       },
       fontSize: {
         "h1": ["32px", { lineHeight: "1.3em", letterSpacing: "-0.04em" }],

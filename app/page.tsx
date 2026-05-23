@@ -5,7 +5,6 @@ import FeaturedWork from "@/components/FeaturedWork";
 import ExperienceRow from "@/components/ExperienceRow";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
-import Avatar from "@/components/Avatar";
 import Item from "@/components/Item";
 import StackCard from "@/components/StackCard";
 import PostCard from "@/components/PostCard";
@@ -20,25 +19,21 @@ export default function Home() {
   return (
     <main className="w-full max-w-page mx-auto flex flex-col items-center">
       {/* Top: Nav + Hero */}
-      <div className="w-full max-w-content px-16 pt-16 pb-8 flex flex-col gap-8">
+      <div className="w-full max-w-content px-16 pt-12 pb-8 flex flex-col gap-12">
         <Nav name={identity.name} />
-        <div className="flex flex-col gap-5 pt-2">
-          <Avatar size={72} />
-          <div className="flex flex-col gap-2">
-            <h1 className="text-h1 text-heading max-w-[680px]">
-              Hey, I&rsquo;m Neith
-            </h1>
-            <p className="text-body-m text-body max-w-[560px]">
-              {identity.bio}
-            </p>
-          </div>
-          <div className="flex items-center gap-3 pt-1">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-h1 text-heading max-w-[680px]">
+            Markets, systems and{" "}
+            <em className="font-serif font-normal italic tracking-normal">
+              execution
+            </em>
+            .
+          </h1>
+          <p className="text-body-m text-body max-w-[495px]">{identity.bio}</p>
+          <div className="flex items-center gap-3 pt-2">
             <Button href="#work">See work</Button>
             <Button href="/contact" variant="ghost">
               Get in touch
-            </Button>
-            <Button href={identity.social[0].href} variant="ghost" external>
-              LinkedIn
             </Button>
           </div>
         </div>
