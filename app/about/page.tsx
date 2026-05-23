@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageShell from "@/components/PageShell";
 import Avatar from "@/components/Avatar";
 import Button from "@/components/Button";
@@ -13,7 +14,24 @@ export default function AboutPage() {
   return (
     <PageShell>
       <div className="w-full max-w-content px-16 pb-20 flex flex-col gap-8">
-        <Avatar size={72} />
+        <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden hairline">
+          <Image
+            src="/work/neural-edge.png"
+            alt=""
+            fill
+            sizes="900px"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+          <div className="absolute left-6 bottom-6 flex items-center gap-3">
+            <Avatar size={56} />
+            <span className="flex flex-col leading-tight">
+              <span className="text-body-m text-heading">{identity.name}</span>
+              <span className="text-body-s text-body">{identity.role}</span>
+            </span>
+          </div>
+        </div>
         <h1 className="text-h1 text-heading">About</h1>
         <div className="flex flex-col gap-5 max-w-[640px]">
           <p className="text-body-m text-body">{identity.about}</p>

@@ -11,6 +11,7 @@ export interface PostMeta {
   category: string;
   excerpt: string;
   readTime: number;
+  thumbnail?: string;
 }
 
 export interface Post extends PostMeta {
@@ -36,6 +37,7 @@ export function getPost(slug: string): Post {
     category: data.category ?? "",
     excerpt: data.excerpt ?? "",
     readTime: data.readTime ?? 0,
+    thumbnail: data.thumbnail ?? undefined,
     content,
   };
 }

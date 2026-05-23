@@ -53,6 +53,7 @@ export default function Home() {
                   ? ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"]
                   : undefined
               }
+              image={i === 1 ? "/work/macro-journal.png" : undefined}
             />
           ))}
           <div className="flex flex-col pt-4">

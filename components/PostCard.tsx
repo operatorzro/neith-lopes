@@ -1,11 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { formatDate, type PostMeta } from "@/lib/posts";
 
 const gradients = [
-  "radial-gradient(130% 130% at 20% 20%, #4f46e5 0%, #1e1b4b 45%, #0a0a0a 80%)",
-  "radial-gradient(130% 130% at 80% 30%, #0ea5e9 0%, #082f49 45%, #0a0a0a 80%)",
-  "radial-gradient(130% 130% at 50% 80%, #7c3aed 0%, #2e1065 45%, #0a0a0a 80%)",
-  "radial-gradient(130% 130% at 30% 70%, #db2777 0%, #500724 45%, #0a0a0a 80%)",
+  "radial-gradient(130% 130% at 20% 20%, #2a2f24 0%, #14160f 45%, #0a0a0a 80%)",
+  "radial-gradient(130% 130% at 80% 30%, #1f2a2a 0%, #0f1414 45%, #0a0a0a 80%)",
+  "radial-gradient(130% 130% at 50% 80%, #262824 0%, #131410 45%, #0a0a0a 80%)",
 ];
 
 export default function PostCard({
@@ -19,9 +19,20 @@ export default function PostCard({
     <Link href={`/blog/${post.slug}`} className="group flex flex-col gap-3">
       <div
         className="relative aspect-[16/9] w-full rounded-lg overflow-hidden hairline"
-        style={{ background: gradients[index % gradients.length] }}
+        style={
+          post.thumbnail ? undefined : { background: gradients[index % gradients.length] }
+        }
       >
-        <span className="absolute left-3 top-3 rounded-full bg-black/30 backdrop-blur-sm px-2.5 py-0.5 text-body-s text-heading">
+        {post.thumbnail && (
+          <Image
+            src={post.thumbnail}
+            alt={post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 440px"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        )}
+        <span className="absolute left-3 top-3 z-10 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-0.5 text-body-s text-heading">
           {post.category}
         </span>
       </div>

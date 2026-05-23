@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { DotmSquare1 } from "./dotmatrix/loaders/dotm-square-1";
 import Ticker from "./Ticker";
 
@@ -7,6 +8,7 @@ export default function FeaturedWork({
   role,
   summary,
   ticker,
+  image,
   gradient,
   href,
 }: {
@@ -14,6 +16,7 @@ export default function FeaturedWork({
   role: string;
   summary: string;
   ticker?: string[];
+  image?: string;
   gradient?: string;
   href?: string;
 }) {
@@ -76,6 +79,14 @@ export default function FeaturedWork({
               className="bottom-[-22%] right-0 w-full h-[60%]"
             />
           </>
+        ) : image ? (
+          <Image
+            src={image}
+            alt=""
+            fill
+            sizes="440px"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
         ) : (
           <div
             className="absolute inset-0"
