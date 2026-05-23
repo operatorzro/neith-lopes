@@ -1,52 +1,48 @@
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Section from "@/components/Section";
 import FeaturedWork from "@/components/FeaturedWork";
 import ExperienceRow from "@/components/ExperienceRow";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
-import Badge from "@/components/Badge";
-import {
-  identity,
-  work,
-  education,
-  skills,
-  credentials,
-} from "@/lib/data";
+import Avatar from "@/components/Avatar";
+import Item from "@/components/Item";
+import StackCard from "@/components/StackCard";
+import PostCard from "@/components/PostCard";
+import { identity, work, stack, workingOn } from "@/lib/data";
+import { getAllPosts } from "@/lib/posts";
 
 export default function Home() {
   const featured = work.filter((w) => w.featured);
   const rest = work.filter((w) => !w.featured);
+  const posts = getAllPosts().slice(0, 4);
 
   return (
     <main className="w-full max-w-page mx-auto flex flex-col items-center">
       {/* Top: Nav + Hero */}
-      <div className="w-full max-w-content px-16 pt-16 pb-8 flex flex-col gap-6">
+      <div className="w-full max-w-content px-16 pt-16 pb-8 flex flex-col gap-8">
         <Nav name={identity.name} />
-        <div className="flex flex-col gap-4 pt-2">
-          <Badge>{identity.location}</Badge>
-          <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-5 pt-2">
+          <Avatar size={72} />
+          <div className="flex flex-col gap-2">
             <h1 className="text-h1 text-heading max-w-[680px]">
-              {identity.name}
+              Hey, I&rsquo;m Neith
             </h1>
-            <p className="text-h3 text-heading">{identity.role}</p>
-            <p className="text-h3 text-body">{identity.tagline}</p>
+            <p className="text-body-m text-body max-w-[560px]">
+              {identity.bio}
+            </p>
           </div>
-          <p className="text-body-m text-body max-w-[560px] pt-1">
-            {identity.bio}
-          </p>
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex items-center gap-3 pt-1">
             <Button href="#work">See work</Button>
-            <Button href="#contact" variant="ghost">
+            <Button href="/contact" variant="ghost">
               Get in touch
+            </Button>
+            <Button href={identity.social[0].href} variant="ghost" external>
+              LinkedIn
             </Button>
           </div>
         </div>
       </div>
-
-      {/* About */}
-      <Section title="About" id="about">
-        <p className="text-body-m text-body max-w-[640px]">{identity.about}</p>
-      </Section>
 
       {/* Work & Projects */}
       <Section title="Work & Projects" id="work">
@@ -75,57 +71,40 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Skills */}
-      <Section title="Skills" id="skills">
+      {/* Latest Posts */}
+      <Section title="Latest Posts" id="posts">
+        <div className="grid grid-cols-2 gap-4">
+          {posts.map((p) => (
+            <PostCard key={p.slug} post={p} />
+          ))}
+        </div>
+        <Link
+          href="/blog"
+          className="text-body-s text-body hover:text-heading transition-colors w-fit"
+        >
+          All posts →
+        </Link>
+      </Section>
+
+      {/* Stack */}
+      <Section title="Stack" id="stack">
         <div className="grid grid-cols-3 gap-4">
-          {skills.map((group) => (
-            <div
-              key={group.title}
-              className="bg-ui rounded-lg p-5 flex flex-col gap-3"
-            >
-              <h3 className="text-body-m text-heading">{group.title}</h3>
-              <ul className="flex flex-col gap-1.5">
-                {group.items.map((item) => (
-                  <li key={item} className="text-body-s text-body">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {stack.map((s) => (
+            <StackCard key={s.name} name={s.name} category={s.category} />
           ))}
         </div>
       </Section>
 
-      {/* Education */}
-      <Section title="Education" id="education">
-        <div className="flex flex-col">
-          {education.map((e) => (
-            <ExperienceRow
-              key={e.school}
-              role={e.degree}
-              org={e.school}
-              period={e.period}
-              summary={e.summary}
-            />
+      {/* Working On */}
+      <Section title="Working On" id="working-on">
+        <div className="grid grid-cols-3 gap-x-6 gap-y-3">
+          {workingOn.map((w) => (
+            <Item key={w.label} label={w.label} checked={w.done} />
           ))}
         </div>
       </Section>
 
-      {/* Credentials */}
-      <Section title="Credentials" id="credentials">
-        <ul className="flex flex-col">
-          {credentials.map((c) => (
-            <li
-              key={c}
-              className="py-3 border-b border-white/10 last:border-0 text-body-m text-heading"
-            >
-              {c}
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* Contact */}
+      {/* Contact CTA */}
       <Section title="Contact" id="contact">
         <div className="bg-ui rounded-lg p-8 flex flex-col gap-4">
           <h3 className="text-h3 max-w-[600px]">
@@ -136,8 +115,8 @@ export default function Home() {
             <Button href={`mailto:${identity.email}`} external>
               {identity.email}
             </Button>
-            <Button href={identity.social[0].href} variant="ghost" external>
-              LinkedIn
+            <Button href="/contact" variant="ghost">
+              Contact page
             </Button>
           </div>
         </div>

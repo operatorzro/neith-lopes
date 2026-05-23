@@ -2,10 +2,11 @@
 import Link from "next/link";
 
 const links = [
-  { label: "Work", href: "#projects" },
-  { label: "Stack", href: "#skills" },
-  { label: "About", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Blog", href: "/blog" },
+  { label: "Resume", href: "/resume" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Nav({ name }: { name: string }) {
@@ -20,12 +21,12 @@ export default function Nav({ name }: { name: string }) {
       <ul className="flex items-center gap-6">
         {links.map((l) => (
           <li key={l.href}>
-            <a
+            <Link
               href={l.href}
               className="text-body-s text-body hover:text-heading transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
