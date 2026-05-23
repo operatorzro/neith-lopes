@@ -42,14 +42,17 @@ export default function Home() {
       {/* Work & Projects */}
       <Section title="Work & Projects" id="work">
         <div className="flex flex-col gap-4">
-          {featured.map((w) => (
+          {featured.map((w, i) => (
             <FeaturedWork
               key={w.name}
               name={w.name}
               role={w.role}
-              period={w.period}
               summary={w.summary}
-              tags={w.tags}
+              ticker={
+                i === 0
+                  ? ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"]
+                  : undefined
+              }
             />
           ))}
           <div className="flex flex-col pt-4">
@@ -68,9 +71,9 @@ export default function Home() {
 
       {/* Latest Posts */}
       <Section title="Latest Posts" id="posts">
-        <div className="grid grid-cols-2 gap-4">
-          {posts.map((p) => (
-            <PostCard key={p.slug} post={p} />
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+          {posts.map((p, i) => (
+            <PostCard key={p.slug} post={p} index={i} />
           ))}
         </div>
         <Link

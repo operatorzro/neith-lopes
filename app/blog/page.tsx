@@ -20,9 +20,9 @@ export default function BlogPage() {
             Notes on markets, AI workflows, research systems and building.
           </p>
         </header>
-        <div className="grid grid-cols-2 gap-4">
-          {posts.map((p) => (
-            <PostCard key={p.slug} post={p} />
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+          {posts.map((p, i) => (
+            <PostCard key={p.slug} post={p} index={i} />
           ))}
         </div>
       </div>
