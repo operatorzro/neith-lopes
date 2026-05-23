@@ -32,10 +32,10 @@ export type WorkItem = {
 export const work: WorkItem[] = [
   {
     name: "Neural Edge",
-    role: "Macro Research & Decision-Support",
+    role: "Macro Research Platform",
     period: "2026 — Present",
     summary:
-      "A decision-support platform for traders and market operators across global markets.",
+      "Turns scattered market inputs into clear, reviewable decisions.",
     logo: "/work/neural-edge-logo.svg",
     logoFit: "contain" as const,
     ticker: ["FX", "equities", "commodities", "rates", "gold", "macro", "signals", "review"],
@@ -43,21 +43,21 @@ export const work: WorkItem[] = [
   },
   {
     name: "Neural OS",
-    role: "Operating System for Solo Founders",
+    role: "Operating System for Founders",
     period: "2026 — Building",
     summary:
-      "A proactive operating layer for solo founders — AI that runs the work, not waits.",
+      "A proactive AI layer that runs the work a solo founder has no time for.",
     logo: "/work/neural-os-logo.svg",
     logoFit: "contain" as const,
     ticker: ["CEO", "CMO", "CFO", "CTO", "Ops", "Growth", "Strategy", "Copy"],
     featured: true,
   },
   {
-    name: "Independent Macro Research & Trading",
-    role: "Self-directed",
+    name: "Macro Research & Trading",
+    role: "Independent",
     period: "2020 — Present",
     summary:
-      "Self-directed cross-asset research, positioning and post-outcome review.",
+      "Ongoing research across equities, FX, commodities and rates.",
     image: "/work/macro-journal.png",
     featured: true,
   },
