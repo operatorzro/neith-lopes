@@ -186,10 +186,10 @@ export const toolkit: ToolkitGroup[] = [
 ];
 
 export const workingOn = [
+  { label: "Finding my next role", done: false },
   { label: "Scaling Neural Edge", done: false },
-  { label: "Cross-asset macro framework", done: false },
+  { label: "Building Neural OS", done: false },
   { label: "Graduating July 2026", done: false },
-  { label: "Bloomberg Market Concepts", done: true },
   { label: "PE & VC, Bocconi", done: true },
   { label: "Launched this site", done: true },
 ];
