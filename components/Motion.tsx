@@ -5,12 +5,11 @@ import type { ReactNode } from "react";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 14, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 6 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.55, ease: EASE },
+    transition: { duration: 0.5, ease: EASE },
   },
 };
 
@@ -70,9 +69,9 @@ export function InView({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-80px" }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, ease: EASE, delay }}
     >
       {children}

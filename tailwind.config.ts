@@ -6,7 +6,7 @@ const config: Config = {
     extend: {
       colors: {
         background: "rgb(10 10 10)",
-        ui: "rgb(13 13 13)",
+        ui: "rgb(24 24 27)",
         heading: "rgb(252 252 250)",
         body: "rgb(153 153 153)",
         border: "rgba(255 255 255 / 0.1)",
