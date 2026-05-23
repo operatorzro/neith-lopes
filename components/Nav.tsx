@@ -8,11 +8,10 @@ import { identity } from "@/lib/data";
 const roles = ["Finance & AI Operator", "Macro Researcher", "Builder", "Student"];
 
 const pages = [
-  { label: "Home", href: "/" },
-  { label: "Work", href: "/#work" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Resume", href: "/resume" },
-  { label: "About", href: "/about" },
+  { label: "Work", href: "/#work" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -22,11 +21,11 @@ export default function Nav({ name }: { name: string }) {
   return (
     <nav className="w-full flex items-center justify-between">
       {/* Left: avatar + greeting */}
-      <Link href="/" className="flex items-center gap-3">
+      <Link href="/" className="flex items-center gap-2.5">
         <Avatar size={40} />
         <span className="flex flex-col leading-tight">
-          <span className="text-body-s text-heading">Hey, I&rsquo;m {name}.</span>
-          <span className="text-[12px] text-body">
+          <span className="text-body-m text-heading">Hey, I&rsquo;m {name}.</span>
+          <span className="text-body-s text-body">
             <Crossfade words={roles} />
           </span>
         </span>
@@ -42,7 +41,9 @@ export default function Nav({ name }: { name: string }) {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-1 px-3.5 py-2 rounded-lg text-[12px] text-body hover:text-heading transition-colors"
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-[10px] text-body-s transition-colors ${
+              open ? "bg-ui text-heading" : "text-body hover:text-heading"
+            }`}
           >
             Pages
             <svg
@@ -50,7 +51,7 @@ export default function Nav({ name }: { name: string }) {
               height="12"
               viewBox="0 0 12 12"
               fill="none"
-              className={`transition-transform ${open ? "rotate-180" : ""}`}
+              className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
               aria-hidden
             >
               <path
@@ -62,22 +63,26 @@ export default function Nav({ name }: { name: string }) {
               />
             </svg>
           </button>
-          {open && (
-            <div className="absolute right-0 top-full pt-2 z-50">
-              <ul className="min-w-[160px] bg-ui hairline rounded-lg p-1.5 flex flex-col">
-                {pages.map((p) => (
-                  <li key={p.href}>
-                    <Link
-                      href={p.href}
-                      className="block px-3 py-2 rounded-md text-[12px] text-body hover:text-heading hover:bg-white/[0.06] transition-colors"
-                    >
-                      {p.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <div
+            className={`absolute right-0 top-full pt-2 z-50 transition-all duration-200 ${
+              open
+                ? "opacity-100 translate-y-0 pointer-events-auto"
+                : "opacity-0 -translate-y-1 pointer-events-none"
+            }`}
+          >
+            <ul className="min-w-[200px] bg-ui hairline rounded-xl p-2 flex flex-col shadow-[0_16px_40px_-12px_rgba(0,0,0,0.7)]">
+              {pages.map((p) => (
+                <li key={p.href}>
+                  <Link
+                    href={p.href}
+                    className="block px-3 py-2 rounded-lg text-body-s text-heading hover:bg-white/[0.06] transition-colors"
+                  >
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <a
@@ -94,7 +99,7 @@ export default function Nav({ name }: { name: string }) {
 
         <Link
           href="/contact"
-          className="px-3.5 py-2 rounded-[10px] hairline bg-ui text-heading text-[12px] hover:bg-white/[0.06] transition-colors"
+          className="px-4 py-2 rounded-[10px] hairline bg-ui text-heading text-body-s hover:bg-white/[0.06] transition-colors"
         >
           Get In Touch
         </Link>
