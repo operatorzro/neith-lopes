@@ -48,7 +48,7 @@ export const work: WorkItem[] = [
     summary:
       "The team a solo founder doesn't have. Neural OS fills the CEO, CMO, CFO and CTO gaps — acting proactively instead of waiting to be prompted. It learns the business in depth and runs the work between check-ins, built memory-first on Obsidian and a stack purpose-made for founders, not a chat wrapper.",
     logo: "/work/neural-os-logo.svg",
-    logoFit: "cover" as const,
+    logoFit: "contain" as const,
     ticker: ["CEO", "CMO", "CFO", "CTO", "Ops", "Growth", "Strategy", "Copy"],
     featured: true,
   },
