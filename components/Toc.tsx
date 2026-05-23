@@ -33,7 +33,7 @@ export default function Toc({
 
   if (variant === "sidebar") {
     return (
-      <nav className="sticky top-24 flex flex-col gap-1">
+      <nav className="flex flex-col gap-1">
         <p className="text-[11px] uppercase tracking-[0.18em] text-body mb-3">
           On this page
         </p>
@@ -42,13 +42,24 @@ export default function Toc({
             key={h.id}
             type="button"
             onClick={() => go(h.id)}
-            className={`text-left text-body-s leading-snug py-1.5 pl-3 border-l-2 transition-colors ${
-              active === h.id
-                ? "border-heading text-heading"
-                : "border-white/10 text-body hover:text-heading hover:border-white/30"
-            }`}
+            className="group flex items-start gap-2.5 text-left text-body-s leading-snug py-1.5"
           >
-            {h.text}
+            <span
+              className={`mt-[7px] h-1.5 w-1.5 rounded-full shrink-0 transition-all duration-200 ${
+                active === h.id
+                  ? "bg-heading scale-100"
+                  : "bg-white/20 scale-75 group-hover:bg-white/50"
+              }`}
+            />
+            <span
+              className={`transition-colors ${
+                active === h.id
+                  ? "text-heading"
+                  : "text-body group-hover:text-heading"
+              }`}
+            >
+              {h.text}
+            </span>
           </button>
         ))}
       </nav>

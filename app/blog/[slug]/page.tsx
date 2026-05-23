@@ -93,75 +93,80 @@ export default function PostPage({ params }: { params: { slug: string } }) {
     <>
       <ReadingProgress />
       <PageShell>
-        <article className="w-full max-w-[1080px] px-16 pb-24 flex flex-col gap-8">
-          {/* header */}
-          <div className="flex flex-col gap-6 max-w-[760px]">
-            <Link
-              href="/blog"
-              className="text-body-s text-body hover:text-heading transition-colors w-fit"
-            >
-              ← All posts
-            </Link>
-            <span className="w-fit hairline rounded-full px-2.5 py-0.5 text-body-s text-body">
-              {post.category}
-            </span>
-            <h1 className="text-[40px] leading-[1.08] tracking-[-0.03em] text-heading">
-              {post.title}
-            </h1>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <span className="text-body-s text-body">Written by</span>
-                <Avatar size={24} />
-                <span className="text-body-s text-heading">{identity.name}</span>
+        <article className="w-full max-w-[720px] mx-auto px-6 pb-24">
+          <div className="relative flex flex-col gap-8">
+            {/* sticky TOC floating in the left gutter on wide screens */}
+            <aside className="hidden xl:block absolute top-0 right-full mr-12 h-full w-[180px]">
+              <div className="sticky top-24">
+                <Toc headings={headings} variant="sidebar" />
               </div>
-              <span className="text-body-s text-body">
-                {post.readTime > 0
-                  ? `${post.readTime} min read`
-                  : formatDate(post.date)}
-              </span>
-            </div>
-          </div>
-
-          {/* hero image */}
-          {post.thumbnail && (
-            <div className="relative aspect-[16/9] w-full max-w-[760px] rounded-lg overflow-hidden hairline">
-              <Image
-                src={post.thumbnail}
-                alt={post.title}
-                fill
-                sizes="760px"
-                className="object-cover"
-                priority
-              />
-            </div>
-          )}
-
-          {/* body + sticky TOC */}
-          <div className="lg:grid lg:grid-cols-[180px_1fr] lg:gap-12 mt-2">
-            <aside className="hidden lg:block">
-              <Toc headings={headings} variant="sidebar" />
             </aside>
-            <div className="min-w-0 max-w-[700px]">
-              <div className="lg:hidden mb-8">
-                <Toc headings={headings} variant="inline" />
+
+            {/* header */}
+            <div className="flex flex-col gap-6">
+              <Link
+                href="/blog"
+                className="text-body-s text-body hover:text-heading transition-colors w-fit"
+              >
+                ← All posts
+              </Link>
+              <span className="w-fit hairline rounded-full px-2.5 py-0.5 text-body-s text-body">
+                {post.category}
+              </span>
+              <h1 className="text-[40px] leading-[1.08] tracking-[-0.03em] text-heading">
+                {post.title}
+              </h1>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-body-s text-body">Written by</span>
+                  <Avatar size={24} />
+                  <span className="text-body-s text-heading">{identity.name}</span>
+                </div>
+                <span className="text-body-s text-body">
+                  {post.readTime > 0
+                    ? `${post.readTime} min read`
+                    : formatDate(post.date)}
+                </span>
               </div>
-              <div className="article-prose">
-                <MDXRemote source={post.content} components={mdxComponents} />
+            </div>
+
+            {/* hero image */}
+            {post.thumbnail && (
+              <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden hairline">
+                <Image
+                  src={post.thumbnail}
+                  alt={post.title}
+                  fill
+                  sizes="720px"
+                  className="object-cover"
+                  priority
+                />
               </div>
-              <div className="mt-16 pt-8 border-t border-white/10 flex items-center justify-between gap-4">
-                <Link
-                  href="/blog"
-                  className="text-body-s text-heading hover:text-body transition-colors"
-                >
-                  ← Back to all posts
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-body-s text-body hover:text-heading transition-colors"
-                >
-                  Get in touch →
-                </Link>
-              </div>
+            )}
+
+            {/* inline TOC on smaller screens */}
+            <div className="xl:hidden">
+              <Toc headings={headings} variant="inline" />
+            </div>
+
+            {/* body */}
+            <div className="article-prose">
+              <MDXRemote source={post.content} components={mdxComponents} />
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-between gap-4">
+              <Link
+                href="/blog"
+                className="text-body-s text-heading hover:text-body transition-colors"
+              >
+                ← Back to all posts
+              </Link>
+              <Link
+                href="/contact"
+                className="text-body-s text-body hover:text-heading transition-colors"
+              >
+                Get in touch →
+              </Link>
             </div>
           </div>
         </article>
