@@ -6,13 +6,13 @@ export const identity = {
   bio: "I study finance, build software with AI agents, and trade my own research. Most of what I make ends up here: the products I'm building, what I write, and what I'm still working out.",
   about:
     "I'm a Singaporean finance and investments student in the UK, graduating in July 2026. My time goes to three things: studying markets, building software with AI agents, and running my own research and trades. What connects them is a habit of taking a messy process and turning it into a system I can run again and check.",
-  email: "neithlopes@gmail.com",
+  email: "hello@neithl.com",
   social: [
     {
       label: "LinkedIn",
       href: "https://linkedin.com/in/neith-lopes-652656294",
     },
-    { label: "Email", href: "mailto:neithlopes@gmail.com" },
+    { label: "Email", href: "mailto:hello@neithl.com" },
   ],
 };
 
